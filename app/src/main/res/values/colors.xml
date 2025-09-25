@@ -3,4 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <!-- 新增 red 颜色定义（可自定义色值） -->
+         <color name="red">#FF0000</color> <!-- 标准红色的十六进制色值 -->
 </resources>

@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>  <!-- 隐藏默认标题栏 -->
+	<item name="windowActionBar">false</item>  <!-- 禁用ActionBar -->
+	<item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
 </resources>
