@@ -21,7 +21,6 @@
         <service
             android:name=".NodeService"
             android:exported="false"
-            <!-- 【新增】允许Service在后台启动（Android 12+ 可选，增强兼容性） -->
             android:foregroundServiceType="dataSync" /> 
 
         <activity android:name=".MainActivity"

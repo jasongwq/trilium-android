@@ -16,17 +16,6 @@ import android.graphics.Color
 import android.os.Build
 
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)  // 加载布局
-        
-        // App启动时自动启动NodeService
-        startNodeService()
-    }
-
-
-}
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
