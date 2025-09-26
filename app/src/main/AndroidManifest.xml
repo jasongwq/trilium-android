@@ -16,6 +16,14 @@
         android:usesCleartextTraffic="true">
         <!-- 声明使用HTTP的权限（Android 9.0及以上需要） -->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <!-- 已注册的NodeService -->
+        <service
+            android:name=".NodeService"
+            android:exported="false"
+            <!-- 【新增】允许Service在后台启动（Android 12+ 可选，增强兼容性） -->
+            android:foregroundServiceType="dataSync" /> 
+
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

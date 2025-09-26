@@ -13,6 +13,21 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import android.graphics.Color
 
+import android.os.Build
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)  // 加载布局
+        
+        // App启动时自动启动NodeService
+        startNodeService()
+    }
+
+
+}
+
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     
@@ -21,18 +36,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-// 启用全屏模式（隐藏状态栏和导航栏）
-     window.decorView.systemUiVisibility = (
-         View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-         or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-         or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-         or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // 隐藏导航栏
-         or View.SYSTEM_UI_FLAG_FULLSCREEN // 隐藏状态栏
-         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY // 沉浸式（滑动时临时显示）
-     )
-     // 设置导航栏透明（配合沉浸式）
-     window.navigationBarColor = Color.TRANSPARENT
-     window.statusBarColor = Color.TRANSPARENT
+        // 启用全屏模式（隐藏状态栏和导航栏）
+        window.decorView.systemUiVisibility = (
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // 隐藏导航栏
+            or View.SYSTEM_UI_FLAG_FULLSCREEN // 隐藏状态栏
+            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY // 沉浸式（滑动时临时显示）
+        )
+
+        
+        // App启动时自动启动NodeService
+        startNodeService()
+
+        // 设置导航栏透明（配合沉浸式）
+        window.navigationBarColor = Color.TRANSPARENT
+        window.statusBarColor = Color.TRANSPARENT
 
         setContentView(R.layout.activity_main)
         
@@ -50,7 +70,19 @@ class MainActivity : AppCompatActivity() {
             webView.restoreState(savedInstanceState)
         }
     }
-
+    /**
+     * 启动Node服务（适配Android 8.0+前台服务机制）
+     */
+    private fun startNodeService() {
+        val serviceIntent = Intent(this, NodeService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0+ 必须使用前台服务启动
+            startForegroundService(serviceIntent)
+        } else {
+            // 低版本直接启动服务
+            startService(serviceIntent)
+        }
+    }
     /**
      * 配置WebView的各种设置和客户端
      */
