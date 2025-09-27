@@ -1,4 +1,4 @@
-package com.ncorti.kotlin.template.app
+package fun.ypwq.trilium
 
 import android.app.Notification
 import android.app.NotificationChannel

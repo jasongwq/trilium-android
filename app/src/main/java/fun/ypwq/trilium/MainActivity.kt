@@ -1,4 +1,4 @@
-package com.ncorti.kotlin.template.app
+package fun.ypwq.trilium
 
 import android.content.Intent
 import android.net.Uri
@@ -25,23 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 启用全屏模式（隐藏状态栏和导航栏）
-        window.decorView.systemUiVisibility = (
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // 隐藏导航栏
-            or View.SYSTEM_UI_FLAG_FULLSCREEN // 隐藏状态栏
-            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY // 沉浸式（滑动时临时显示）
-        )
-
         
         // App启动时自动启动NodeService
-//        startNodeService()
-
-        // 设置导航栏透明（配合沉浸式）
-        window.navigationBarColor = Color.TRANSPARENT
-        window.statusBarColor = Color.TRANSPARENT
+        startNodeService()
 
         setContentView(R.layout.activity_main)
         webView = findViewById(R.id.webView)
