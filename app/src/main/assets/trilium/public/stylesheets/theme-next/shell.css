@@ -1,0 +1,1719 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+:root {
+    --dropdown-backdrop-filter: blur(10px) saturate(6);
+    --dropdown-border-radius: 10px;
+}
+
+#root-widget {
+    background-color: var(--root-background);
+}
+
+body {
+    --native-titlebar-darwin-x-offset: 10;
+    --native-titlebar-darwin-y-offset: 17 !important;
+}
+
+body.layout-horizontal {
+    --active-tab-background-color: var(--launcher-pane-horiz-background-color);
+    --active-tab-hover-background-color: var(--active-tab-background-color);
+    --new-tab-button-background: transparent;
+    --tab-bar-height: 44px;
+    --native-titlebar-darwin-x-offset: 12;
+    --native-titlebar-darwin-y-offset: 14 !important;
+}
+
+body.mobile {
+    --hover-item-background-color: transparent;
+}
+
+/* #region Mica */
+body.background-effects.platform-win32 {
+    --launcher-pane-horiz-border-color: rgba(0, 0, 0, 0.15);
+    --launcher-pane-horiz-background-color: rgba(255, 255, 255, 0.7);
+    --launcher-pane-vert-background-color: rgba(255, 255, 255, 0.055);
+    --tab-background-color: transparent;
+    --new-tab-button-background: transparent;
+    --active-tab-background-color: var(--launcher-pane-horiz-background-color);
+    --background-material: tabbed;
+}
+
+@media (prefers-color-scheme: dark) {
+    body.background-effects.platform-win32 {
+        --launcher-pane-horiz-border-color: rgba(0, 0, 0, 0.5);
+        --launcher-pane-horiz-background-color: rgba(255, 255, 255, 0.09);
+    }
+}
+
+body.background-effects.platform-win32.layout-vertical {
+    --left-pane-background-color: transparent;
+    --left-pane-item-hover-background: rgba(127, 127, 127, 0.05);
+    --background-material: mica;
+}
+
+body.background-effects.platform-win32,
+body.background-effects.platform-win32 #root-widget,
+body.background-effects.platform-win32 #launcher-pane .launcher-button {
+    background: transparent !important;
+}
+
+body.background-effects.platform-win32.layout-horizontal #horizontal-main-container,
+body.background-effects.platform-win32.layout-vertical #vertical-main-container {
+    background-color: var(--root-background);
+}
+/* #endregion */
+
+/* Matches when the left pane is collapsed */
+#horizontal-main-container.left-pane-hidden {
+    --center-pane-border-radius: 0;
+    --tab-first-item-horiz-offset: 5px;
+}
+
+/* Add a border to the vertical launch bar if collapsed. */
+body.layout-vertical #horizontal-main-container.left-pane-hidden #launcher-pane.vertical {
+    border-right: 2px solid var(--left-pane-collapsed-border-color);
+}
+
+body.background-effects.zen #root-widget {
+    --main-background-color: transparent;
+    --root-background: transparent;
+}
+
+/*
+ * Gutter
+ */
+
+ .gutter {
+    background: var(--gutter-color) !important;
+    transition: background 150ms ease-out;
+}
+
+.gutter:hover {
+    background: var(--gutter-hover-color) !important;
+    transition: background 300ms ease-in;
+}
+
+/*
+ * LAUNCHER PANE / TOOLBAR
+ */
+
+#launcher-container,
+body.layout-horizontal > .horizontal {
+    align-items: center;
+}
+
+#launcher-container {
+    scrollbar-gutter: stable both-edges;
+}
+
+#launcher-pane.vertical {
+    --launcher-pane-border-color: unset;
+    --launcher-pane-background-color: var(--launcher-pane-vert-background-color);
+    --launcher-pane-text-color: var(--launcher-pane-vert-text-color);
+    --launcher-pane-button-hover-color: var(--launcher-pane-vert-button-hover-color);
+    --launcher-pane-button-hover-background: var(--launcher-pane-vert-button-hover-background);
+    --launcher-pane-button-hover-shadow: var(--launcher-pane-vert-button-hover-shadow);
+    --launcher-pane-button-focus-outline-color: var(--launcher-pane-vert-button-focus-outline-color);
+
+    --launcher-pane-size: var(--launcher-pane-vert-size);
+    --launcher-pane-icon-size: var(--launcher-pane-vert-icon-size);
+    --launcher-pane-button-margin: var(--launcher-pane-vert-button-margin);
+    --launcher-pane-button-gap: var(--launcher-pane-vert-button-gap);
+
+    width: var(--launcher-pane-size) !important;
+    min-width: var(--launcher-pane-size) !important;
+    padding-bottom: var(--launcher-pane-button-gap);
+}
+
+#launcher-pane.vertical #launcher-container {
+    width: var(--launcher-pane-size);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#launcher-pane.horizontal {
+    --launcher-pane-border-color: var(--launcher-pane-horiz-border-color);
+    --launcher-pane-background-color: var(--launcher-pane-horiz-background-color);
+    --launcher-pane-text-color: var(--launcher-pane-horiz-text-color);
+    --launcher-pane-button-hover-color: var(--launcher-pane-horiz-button-hover-color);
+    --launcher-pane-button-hover-background: var(--launcher-pane-horiz-button-hover-background);
+    --launcher-pane-button-hover-shadow: var(--launcher-pane-horiz-button-hover-shadow);
+    --launcher-pane-button-focus-outline-color: var(--launcher-pane-horiz-button-focus-outline-color);
+
+    --launcher-pane-size: var(--launcher-pane-horiz-size);
+    --launcher-pane-icon-size: var(--launcher-pane-horiz-icon-size);
+    --launcher-pane-button-margin: var(--launcher-pane-horiz-button-margin);
+    --launcher-pane-button-gap: var(--launcher-pane-horiz-button-gap);
+
+    height: var(--launcher-pane-size) !important;
+    align-items: center;
+}
+
+#launcher-pane.horizontal #launcher-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+@media (max-width: 991px) {
+    #mobile-bottom-bar {
+        background: var(--launcher-pane-horiz-background-color);
+    }
+
+    body.mobile #launcher-pane {
+        background: transparent !important;
+    }
+}
+
+@media (min-width: 992px) {
+    #launcher-pane.horizontal {
+        border-top: unset;
+        border-bottom: 1px solid var(--launcher-pane-horiz-border-color);
+    }
+}
+
+#launcher-pane .launcher-button,
+#launcher-pane .dropdown {
+    width: calc(var(--launcher-pane-size) - (var(--launcher-pane-button-margin) * 2)) !important;
+    height: calc(var(--launcher-pane-size) - (var(--launcher-pane-button-margin) * 2)) !important;
+    margin: var(--launcher-pane-button-gap) var(--launcher-pane-button-margin);
+}
+
+#launcher-pane .launcher-button {
+    padding: 0 !important;
+    border-radius: 8px;
+    transition:
+        background-color 300ms ease-out,
+        color 300ms ease-out,
+        box-shadow 300ms ease-out;
+    cursor: default;
+}
+
+#launcher-pane .dropdown .launcher-button {
+    margin: 0;
+}
+
+#launcher-pane .launcher-button:active,
+#launcher-pane .launcher-button.show {
+    transform: scale(0.9);
+    transition: transform 50ms linear;
+}
+
+#launcher-pane .launcher-button:hover,
+#launcher-pane .launcher-button.right-dropdown-button.show,
+#launcher-pane.horizontal .global-menu-button:hover,
+#launcher-pane.horizontal .global-menu-button.show {
+    background: var(--launcher-pane-button-hover-background) !important;
+    color: var(--launcher-pane-button-hover-color);
+    box-shadow: var(--launcher-pane-button-hover-shadow);
+    transition:
+        background-color 100ms ease-in,
+        color 80ms ease-in,
+        box-shadow 100ms ease-in;
+}
+
+#launcher-pane div.launcher-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#launcher-pane .launcher-button {
+    font-size: var(--launcher-pane-icon-size) !important;
+}
+
+#launcher-pane .launcher-button:focus,
+#launcher-pane .global-menu button:focus {
+    outline: none;
+}
+
+#launcher-pane .launcher-button:focus-visible,
+#launcher-pane.horizontal .global-menu button:focus-visible {
+    outline: 2px solid var(--launcher-pane-button-focus-outline-color);
+}
+
+#launcher-pane.vertical .global-menu button:focus-visible svg {
+    outline-offset: 4px;
+    outline: 2px solid var(--launcher-pane-button-focus-outline-color);
+    border-radius: 4px;
+    overflow: visible;
+}
+
+#launcher-pane.vertical .spacer {
+    width: var(--launcher-pane-size);
+}
+
+#launcher-pane.horizontal .spacer {
+    height: var(--launcher-pane-size);
+}
+
+/* Protected session enabled button */
+
+#launcher-pane button.bx-check-shield,
+#launcher-pane button.bx-check-shield:hover {
+    color: var(--protected-session-active-icon-color);
+    transition: color 500ms ease-in-out;
+}
+
+/* Sync status button */
+
+#launcher-pane .sync-status .sync-status-icon {
+    top: 3px;
+}
+
+#launcher-pane .sync-status-icon:not(.sync-status-in-progress):hover {
+    background: unset;
+}
+
+@keyframes sync-status-pulse {
+    from {
+        color: currentColor;
+    }
+    to {
+        color: var(--pulse-color);
+    }
+}
+
+#launcher-pane .sync-status-disconnected-with-changes {
+    --pulse-color: var(--sync-status-error-pulse-color);
+    animation: sync-status-pulse 1s ease-in-out alternate-reverse infinite;
+}
+
+#launcher-pane .global-menu-button {
+    --hover-item-background-color: transparent;
+}
+
+#launcher-pane.horizontal .global-menu-button .global-menu-button-update-available {
+    right: -23px;
+    bottom: -22px;
+    transform: scale(0.85);
+}
+
+.tooltip .tooltip-arrow {
+    display: none;
+}
+
+.tooltip .tooltip-inner {
+    padding: 6px 10px !important;
+    box-shadow:
+        -1px -1px 2px var(--tooltip-shadow-color),
+        2px 2px 8px var(--tooltip-shadow-color) !important;
+    border: unset !important;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    color: var(--tooltip-foreground-color) !important;
+}
+
+/*
+ * Global menu
+ */
+
+ .global-menu div.zoom-buttons a {
+    border: unset;
+}
+
+.global-menu div.zoom-buttons a.bx {
+    color: var(--menu-text-color) !important;
+}
+
+/*
+ * Calendar
+ */
+
+ .calendar-dropdown-widget {
+    width: unset !important;
+    padding: 12px;
+    color: var(--calendar-color);
+    user-select: none;
+}
+
+.calendar-dropdown-widget .calendar-header {
+    gap: 10px;
+}
+
+.calendar-dropdown-widget .calendar-header input,
+.calendar-dropdown-widget .calendar-header [data-calendar-input="month"] {
+    --input-background-color: transparent;
+    --menu-background-color: transparent;
+
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.calendar-dropdown-widget .calendar-header input:not(:focus) {
+    outline: 3px solid transparent;
+}
+
+.calendar-dropdown-widget .calendar-header .calendar-month-selector .select-button {
+    --select-arrow-svg: initial; /* Disable the dropdown arrow */
+}
+
+@media (max-width: 992px) {
+    .calendar-dropdown-widget .calendar-header button {
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    .calendar-dropdown-widget .calendar-header .calendar-month-selector .select-button {
+        padding: 0 8px;
+        flex-grow: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .calendar-dropdown-widget .calendar-header .calendar-month-selector .select-button {
+        min-width: 120px;
+        padding: 0 10px;
+    }
+}
+
+.calendar-dropdown-widget .calendar-header .dropdown-toggle::after {
+    content: unset !important;
+}
+
+.calendar-dropdown-widget .calendar-week span {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--calendar-weekday-labels-color);
+}
+
+.calendar-dropdown-widget .calendar-body {
+    font-size: 0.9em;
+}
+
+.calendar-dropdown-widget .calendar-body a {
+    background: transparent;
+    color: var(--calendar-color);
+}
+
+.calendar-dropdown-widget .calendar-body a.calendar-date-exists {
+    position: relative;
+    text-decoration: none !important;
+}
+
+.calendar-dropdown-widget .calendar-body a.calendar-date-exists:not(:hover)::before {
+    --vertical-margin: 13%;
+    --horiz-margin: 18%;
+    content: "";
+    position: absolute;
+    top: var(--vertical-margin);
+    right: var(--horiz-margin);
+    bottom: var(--vertical-margin);
+    left: var(--horiz-margin);
+    border-radius: 6px;
+    background: var(--calendar-day-highlight-background);
+    z-index: -1;
+}
+
+body .calendar-dropdown-widget .calendar-body a:hover {
+    border-radius: 6px;
+    background: var(--calendar-day-hover-background);
+    color: var(--calendar-day-hover-color) !important;
+    text-decoration: unset;
+}
+
+/*
+ * Bookmarks folder popup
+ */
+
+div.bookmark-folder-widget {
+    min-width: auto;
+    max-width: 40vw;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+div.bookmark-folder-widget .children-notes {
+    margin: 0;
+}
+
+/* Item */
+div.bookmark-folder-widget span.note-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    border-radius: 6px;
+    padding: 6px 25px;
+}
+
+/* Item: the parent note */
+div.bookmark-folder-widget .parent-note .note-link {
+    padding: 6px 8px;
+    font-weight: bold;
+}
+
+div.bookmark-folder-widget .note-link:hover {
+    background: var(--hover-item-background-color);
+}
+
+div.bookmark-folder-widget .note-link a {
+    padding-left: 8px;
+    color: var(--menu-text-color);
+    cursor: default;
+}
+
+div.bookmark-folder-widget .note-link:hover a {
+    color: var(--hover-item-text-color);
+}
+
+/* The item's icon */
+div.bookmark-folder-widget .note-link .bx {
+    color: var(--menu-item-icon-color);
+    font-size: 1.2em;
+}
+
+/* 
+ * QUICK SEARCH BOX
+ */
+
+div.quick-search {
+    --padding-top: 8px;
+    --padding-left: 8px;
+    --padding-right: 8px;
+    --padding-bottom: 8px;
+
+    position: relative;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: unset;
+    contain: unset;
+    padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+}
+
+div.quick-search,
+div.quick-search:hover,
+div.quick-search:focus-within {
+    /* Prevent changes to background and outline when the state of the input group changes */
+    background: transparent;
+    outline: none;
+}
+
+div.quick-search::before {
+    /* The background rectangle of the search box */
+    position: absolute;
+    content: "";
+    top: var(--padding-top);
+    left: var(--padding-left);
+    bottom: var(--padding-bottom);
+    right: var(--padding-right);
+    z-index: 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: var(--quick-search-background);
+    transition: background-color 200ms ease-in;
+}
+
+div.quick-search:hover:before {
+    /* Hovered search box background rectangle */
+    background: var(--quick-search-hover-background);
+    transition: background-color 75ms ease-out;
+}
+
+div.quick-search:focus-within:before {
+    /* Focused search box background rectangle */
+    border-color: var(--quick-search-focus-border);
+    background: var(--quick-search-focus-background);
+    transition: background-color 100ms ease-out;
+}
+
+div.quick-search input {
+    padding-left: 15px !important;
+    box-shadow: unset !important;
+    background: transparent !important;
+}
+
+div.quick-search input::placeholder {
+    color: var(--quick-search-color);
+}
+
+div.quick-search:focus-within input {
+    color: var(--quick-search-focus-color) !important;
+}
+
+div.quick-search .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+    border-radius: 50%;
+    padding: 0;
+    color: var(--quick-search-color) !important;
+    transition: background-color 200ms ease-in !important;
+}
+
+div.quick-search .search-button:active {
+    transform: scale(0.85);
+}
+
+div.quick-search:focus-within:has(input:not(:placeholder-shown)) .search-button {
+    /* Matches when the input has a value and the focus is inside the search box */
+    background: var(--left-pane-item-action-button-background) !important;
+    color: var(--left-pane-item-action-button-color) !important;
+    transition: background-color 500ms ease-out !important;
+}
+
+html body .quick-search:focus-within .search-button:hover,
+div.quick-search .search-button.show {
+    /* Hover state */
+    background: var(--left-pane-item-action-button-hover-background) !important;
+    color: var(--left-pane-item-action-button-color) !important;
+    transition: background-color 100ms ease-out !important;
+}
+
+/*
+ * Quick search results
+ */
+
+/* Item */
+.quick-search .dropdown-menu *.dropdown-item {
+    padding: 8px 12px !important;
+}
+
+/* Note icon */
+.quick-search .dropdown-menu .dropdown-item > .bx {
+    position: relative;
+    top: 1px;
+}
+
+/* Note title */
+.quick-search .dropdown-menu .dropdown-item > a {
+    color: var(--menu-text-color);
+}
+
+.quick-search .dropdown-menu .dropdown-item > a:hover {
+    --hover-item-background-color: transparent;
+    text-decoration: underline;
+}
+
+/* Note path */
+.quick-search .dropdown-menu small {
+    display: block;
+    opacity: 0.5;
+    font-size: 0.75em;
+    overflow: hidden;
+}
+
+/*
+ * TREE PANE
+ */
+
+#left-pane div.tree {
+    padding: 3px 6px 40px 6px;
+    animation: fade-in 200ms ease-in;
+}
+
+#left-pane span.fancytree-node {
+    border: unset;
+    border-radius: 6px;
+    cursor: default;
+}
+
+#left-pane .ui-fancytree ul {
+    padding-left: 10px;
+}
+
+/* The root element of the tree */
+#left-pane .fancytree-container > li:first-child > span {
+    padding-left: 12px;
+}
+
+#left-pane span.fancytree-node.fancytree-active {
+    position: relative;
+    background: transparent !important;
+    color: var(--left-pane-item-selected-color) !important;
+}
+
+@keyframes left-pane-item-select {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#left-pane span.fancytree-node.fancytree-active::before {
+    position: absolute;
+    content: "";
+    top: var(--left-pane-item-selected-shadow-size);
+    left: var(--left-pane-item-selected-shadow-size);
+    bottom: var(--left-pane-item-selected-shadow-size);
+    right: var(--left-pane-item-selected-shadow-size);
+    background: var(--left-pane-item-selected-background) !important;
+    box-shadow: var(--left-pane-item-selected-shadow);
+    border-radius: 6px;
+    animation: left-pane-item-select 200ms ease-out;
+    z-index: -1;
+}
+
+#left-pane span.fancytree-node.protected > span.fancytree-custom-icon {
+    position: relative;
+    filter: unset !important;
+}
+
+#left-pane span.fancytree-node.protected > span.fancytree-custom-icon:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 14px;
+    content: "\eb4a";
+    font-family: "boxicons";
+    transform: translateX(25%);
+    background: var(--left-pane-background-color);
+    border-radius: 50%;
+}
+
+body.mobile .fancytree-expander::before,
+body.mobile .fancytree-title,
+body.mobile .fancytree-node > span {
+    font-size: 1rem !important;
+}
+
+@media (max-width: 991px) {
+    body.mobile #mobile-sidebar-container {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    body.mobile:not(.force-fixed-tree) #mobile-sidebar-wrapper {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        border-right: 1px solid var(--subtle-border-color);
+    }
+}
+
+#left-pane .fancytree-expander {
+    opacity: 0.65;
+    transition: opacity 150ms ease-in;
+}
+
+#left-pane .fancytree-expander:hover {
+    opacity: 1;
+    transition: opacity 300ms ease-out;
+}
+
+#left-pane .fancytree-custom-icon {
+    margin-top: 0; /* Use this to align the icon with the tree view item's caption */
+}
+
+#left-pane span .fancytree-title {
+    margin-top: -5px;
+}
+
+#left-pane span.fancytree-active .fancytree-title {
+    font-weight: normal;
+}
+
+#left-pane span.fancytree-node:hover {
+    background: var(--left-pane-item-hover-background);
+}
+
+#left-pane span.fancytree-node.shared .fancytree-title::after {
+    opacity: 0.5;
+}
+
+#left-pane .tree-item-button {
+    margin-right: 6px;
+    border: unset;
+    border-radius: 50%;
+    background: var(--left-pane-item-action-button-background);
+    color: var(--left-pane-item-action-button-color);
+    transition:
+        background-color 200ms ease-out,
+        box-shadow 200ms ease-out;
+}
+
+#left-pane .tree-item-button:hover {
+    background: var(--left-pane-item-action-button-hover-background);
+    box-shadow: var(--left-pane-item-action-button-hover-shadow);
+    transition:
+        background-color 100ms ease-in,
+        box-shadow 100ms ease-in;
+}
+
+#left-pane span.fancytree-node.fancytree-active .tree-item-button:hover {
+    box-shadow: var(--left-pane-item-selected-action-button-hover-shadow);
+}
+
+#context-menu-container {
+    /* The context menu of the tree */
+    --menu-item-icon-vert-offset: -1px;
+}
+
+/*
+ * Tree actions toolbar
+ */
+
+/* Toolbar container (collapsed state) */
+#left-pane .tree-actions {
+    max-width: var(--tree-actions-toolbar-collapsed-width);
+    right: var(--tree-actions-toolbar-horizontal-margin);
+    bottom: var(--tree-actions-toolbar-vertical-margin);
+    overflow: hidden;
+    border: 1px solid transparent;
+    padding: var(--tree-actions-toolbar-padding-size);
+    padding-right: var(--tree-actions-toolbar-collapsed-width);
+    background: transparent;
+    transition:
+        max-width 400ms ease-out,
+        background-color 400ms ease-out,
+        border-color 400ms ease-out;
+}
+
+/* Toolbar container (expanded state) */
+#left-pane .tree-actions:hover {
+    max-width: 200px;
+    border-color: var(--dropdown-border-color);
+    background: var(--menu-background-color);
+    backdrop-filter: blur(10px) saturate(6);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, var(--dropdown-shadow-opacity));
+}
+
+/* Toolbar button (toolbar collapsed)*/
+#left-pane .tree-actions button {
+    border: unset;
+    color: var(--menu-item-icon-color);
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+
+/* Toolbar button on hover */
+#left-pane .tree-actions button:hover {
+    background: var(--hover-item-background-color);
+}
+
+/* Toolbar button (toolbar expanded) */
+#left-pane .tree-actions:hover button {
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+}
+
+/* The floating expand button (toolbar collapsed) */
+#left-pane .tree-actions::after {
+    display: flex;
+    content: "\eab4";
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right: calc((var(--tree-actions-toolbar-collapsed-width) - var(--tree-actions-toolbar-expand-button-size)) / 2);
+    width: var(--tree-actions-toolbar-expand-button-size);
+    height: var(--tree-actions-toolbar-expand-button-size);
+    box-shadow: 2px 2px 6px var(--left-pane-background-color);
+    border-radius: 50%;
+    background: var(--left-pane-item-action-button-background);
+    backdrop-filter: blur(10px);
+    color: var(--left-pane-item-action-button-color);
+    font-family: boxicons;
+    font-size: 18px;
+    line-height: 1;
+    transform: translateY(-50%);
+    transition: color 200ms ease-in;
+}
+
+/* The floating expand button (toolbar expanded) */
+#left-pane .tree-actions:hover::after {
+    background: transparent;
+    color: var(--menu-item-icon-color);
+    opacity: var(--menu-item-disabled-opacity);
+    transition: color 200ms ease-out;
+}
+
+/*
+ * Tree settings popup
+ */
+
+#left-pane .tree-settings-popup {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, var(--dropdown-shadow-opacity));
+    border: 1px solid var(--dropdown-border-color);
+    padding: 25px;
+    background: var(--menu-background-color);
+    backdrop-filter: blur(10px) saturate(6);
+    color: var(--menu-text-color);
+}
+
+#left-pane .tree-settings-popup h4 {
+    margin-bottom: 0.75em;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+/*
+ * TAB BAR
+ */
+
+/* The parent element of the tab bar */
+#rest-pane > div.component:first-child {
+    height: var(--tab-bar-height) !important;
+}
+
+.tab-row-widget,
+.tab-row-container {
+    background: transparent !important;
+    height: var(--tab-bar-height) !important;
+}
+
+.tab-row-container .toggle-button {
+    margin: 6px 10px !important;
+}
+
+.tab-row-container {
+    position: relative;
+}
+
+/* Apply a border to the tab bar that avoids the current tab but also allows a transparent active tab. */
+body.layout-horizontal .tab-row-container {
+    border-bottom: 1px solid var(--launcher-pane-horiz-border-color);
+}
+
+body.layout-vertical.electron.platform-darwin .tab-row-container {
+    border-bottom: 1px solid var(--subtle-border-color);
+}
+
+.tab-row-widget-container {
+    height: var(--tab-height) !important;
+}
+
+.tab-row-widget > * {
+    margin-top: calc((var(--tab-bar-height) - var(--tab-height)) / 2);
+}
+
+body.layout-horizontal .tab-row-container {
+    padding-top: calc((var(--tab-bar-height) - var(--tab-height)));
+}
+
+/* Define extra drag areas for Electron windows */
+body.layout-horizontal .tab-row-container,
+body.layout-vertical .tab-row-widget,
+body.layout-vertical #left-pane .quick-search {
+    -webkit-app-region: drag;
+}
+
+/* Limit the drag area for the previous elements to include just to the element itself
+   and not its descendants also */
+body.layout-horizontal .tab-row-container > *,
+body.layout-vertical .tab-row-widget > *:not(.tab-row-filler),
+body.layout-vertical #left-pane .quick-search > * {
+    -webkit-app-region: no-drag;
+}
+
+body.layout-horizontal .tab-row-widget,
+body.layout-horizontal .tab-row-widget-container {
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+body.desktop:not(.background-effects.platform-win32) #root-widget.horizontal-layout {
+    background-color: var(--root-background) !important;
+}
+
+#root-widget.horizontal-layout .tab-row-widget .note-tab .note-tab-wrapper {
+    border: 1px solid transparent;
+    border-bottom-color: transparent;
+    box-shadow: unset;
+}
+
+#root-widget.horizontal-layout .tab-row-widget .note-tab[active] .note-tab-wrapper {
+    border: 1px solid var(--launcher-pane-horiz-border-color);
+    border-bottom-color: transparent;
+}
+
+.tab-row-widget .note-tab .note-tab-wrapper {
+    height: var(--tab-height) !important;
+    transition:
+        background 75ms ease-in,
+        box-shadow 75ms ease-in;
+}
+
+.tab-row-widget .note-tab .note-tab-wrapper:hover {
+    transition: none;
+}
+
+.tab-row-container .title-bar-buttons {
+    margin-top: calc((var(--tab-bar-height) - var(--tab-height)) * -1);
+}
+
+body.layout-horizontal .tab-row-widget .note-tab .note-tab-wrapper {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.note-tab .note-tab-wrapper {
+    --tab-background-color: initial !important;
+}
+
+.note-tab .note-tab-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--workspace-tab-background-color);
+}
+
+.tab-row-widget .note-tab:nth-child(1) {
+    transform: translate3d(var(--tab-first-item-horiz-offset), 0, 0);
+}
+
+.tab-row-widget .note-tab .note-tab-title {
+    text-overflow: ellipsis;
+}
+
+body.layout-vertical .tab-row-widget-is-sorting .note-tab.note-tab-is-dragging .note-tab-wrapper {
+    transform: scale(0.85);
+    box-shadow: var(--active-tab-dragging-shadow) !important;
+}
+
+.tab-row-widget .note-tab[active] .note-tab-wrapper {
+    box-shadow: var(--active-tab-shadow);
+    font-weight: unset !important;
+    transition:
+        background 150ms ease-out,
+        box-shadow 300ms ease-out;
+}
+
+.tab-row-widget-is-sorting .note-tab-drag-handle {
+    cursor: grabbing !important;
+}
+
+.tab-row-widget .note-tab-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+        background-color 75ms ease-out,
+        color 75ms ease-out;
+}
+
+.tab-row-widget .note-tab-close:hover {
+    background: var(--tab-close-button-hover-background) !important;
+    color: var(--tab-close-button-hover-color) !important;
+    transition-timing-function: ease-in;
+}
+
+.tab-row-widget .note-new-tab {
+    position: relative;
+    margin-left: 3px;
+    color: transparent; /* Prevent the original "+" from being displayed */
+}
+
+.tab-row-widget .note-new-tab {
+    background: transparent !important;
+}
+
+.tab-row-widget .note-new-tab::before {
+    /* The background circle */
+    position: absolute;
+    content: "";
+    top: calc((var(--tab-height) - var(--new-tab-button-size)) / 2);
+    left: calc((var(--tab-height) - var(--new-tab-button-size)) / 2);
+    width: var(--new-tab-button-size);
+    height: var(--new-tab-button-size);
+    background: var(--new-tab-button-background);
+    border-radius: 50%;
+    transition:
+        background-color 200ms ease-out,
+        box-shadow 200ms ease-out,
+        transform 300ms ease-in;
+    will-change: transform;
+}
+
+.tab-row-widget .note-new-tab:hover::before {
+    background: var(--new-tab-button-hover-background);
+    box-shadow: var(--new-tab-button-shadow);
+    transition:
+        background-color 100ms ease-in,
+        box-shadow 100ms ease-in;
+}
+
+.tab-row-widget .note-new-tab::after {
+    /* The "X" icon */
+    display: flex;
+    position: absolute;
+    content: "\ebc0";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: boxicons;
+    font-size: calc(var(--new-tab-button-size) * 0.75);
+    color: var(--new-tab-button-color);
+    transition:
+        color 300ms ease-out,
+        transform 300ms ease-in;
+    will-change: transform;
+}
+
+.tab-row-widget .note-new-tab:hover::after {
+    color: var(--new-tab-button-hover-color);
+    transition: color 100ms ease-in;
+}
+
+.tab-row-widget .note-new-tab:active:before,
+.tab-row-widget .note-new-tab:active:after {
+    transform: scale(0.85);
+    transition: transform 75ms ease-out;
+}
+
+.tab-row-filler {
+    top: 0;
+}
+
+/*
+ * CENTER PANE
+ */
+
+#center-pane {
+    background: var(--main-background-color);
+}
+
+.vertical-layout #center-pane {
+    border-radius: var(--center-pane-border-radius) 0 0 0;
+}
+
+.note-split {
+    padding-top: 2px;
+    animation: note-entrance 100ms linear;
+    /* will-change: opacity; -- causes some weird artifacts to the note menu in split view */
+}
+
+/*
+ * Ribbon & note header
+ */
+
+.ribbon-container {
+    margin-bottom: 0 !important;
+}
+
+.note-split:not(.hidden-ext) + .note-split:not(.hidden-ext) {
+    border-left: 4px solid var(--root-background);
+}
+
+@keyframes note-entrance {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+/*
+ * Note title
+ */
+
+.note-title.protected {
+    text-shadow: unset !important;
+}
+
+body.mobile .note-title {
+    background: transparent;
+}
+
+.title-row > *:first-child {
+    margin-right: 0;
+}
+
+.title-row > *:nth-child(2) {
+    margin-left: 0;
+}
+
+.title-row {
+    /* Aligns the "Create new split" button with the note menu button (the three dots button) */
+    padding-right: 3px;
+}
+
+.note-title-widget input {
+    --input-background-color: transparent;
+
+    border-radius: 8px;
+    padding-left: 12px;
+}
+
+/* The "Change note icon" button */
+
+:root .note-icon-widget button.note-icon,
+:root .note-icon-widget button.note-icon:hover {
+    border: none;
+    border-radius: 8px;
+}
+
+/* Dropdown open */
+:root .note-icon-widget button.note-icon.show {
+    background: var(--ck-editor-toolbar-dropdown-button-open-background);
+}
+
+:root .note-icon-widget button.note-icon:not(:disabled):hover {
+    background: var(--icon-button-hover-background);
+    color: var(--icon-button-hover-color);
+}
+
+.note-actions {
+    --menu-item-icon-vert-offset: -2.5px;
+}
+
+/*
+ * Note icon popup
+ */
+
+.note-icon-widget .icon-list span {
+    border-radius: 8px;
+}
+
+.note-icon-widget .icon-list span:hover {
+    background: var(--hover-item-background-color);
+    color: var(--hover-item-text-color);
+}
+
+/*
+ * Alert bar
+ */
+
+@keyframes alert-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#center-pane .note-split > div.alert {
+    position: relative;
+    margin: 8px 0 0 0;
+    border: unset;
+    border-radius: 0;
+    padding: 8px 16px;
+    background: var(--alert-bar-background) !important;
+    font-size: 0.9em;
+    font-weight: normal;
+    animation: alert-show 300ms ease-in;
+    border-bottom: 2px solid #0000001c !important;
+}
+
+/*
+ * Promoted attributes
+ */
+
+.promoted-attribute-cell div.input-group {
+    margin: 1px 0;
+}
+
+/* The promoted attributes section */
+div.promoted-attributes-container {
+    display: flex;
+    margin-right: 10%;
+    padding: 6px 0;
+    gap: 8px;
+    align-items: stretch;
+    container-type: inline-size;
+}
+
+div.promoted-attributes-container,
+div.promoted-attributes-container input {
+    font-size: 0.9rem;
+}
+
+/* A promoted attribute card */
+div.promoted-attribute-cell {
+    --pa-card-padding-left: 16px;
+    --pa-card-padding-right: 2px;
+    --input-background-color: transparent;
+
+    box-shadow: 1px 1px 2px var(--promoted-attribute-card-shadow-color);
+
+    display: inline-flex;
+    margin: 0;
+    border-radius: 8px;
+    padding: 2px var(--pa-card-padding-right) 2px var(--pa-card-padding-left);
+    background: var(--promoted-attribute-card-background-color);
+    overflow-y: visible;
+}
+
+@container (max-width: 500px) {
+    /* Narrow promoted attributes section */
+    div.promoted-attribute-cell {
+        flex-grow: 1;
+    }
+}
+
+/* A promoted attribute card (boolean attribute) */
+div.promoted-attribute-cell:has(input[type="checkbox"]):not(:has(.multiplicity > span)) {
+    /* Checbox attribute, without multiplicity */
+    padding-right: var(--pa-card-padding-left);
+}
+
+div.promoted-attribute-cell > * {
+    display: inline-block;
+}
+
+div.promoted-attribute-cell > label {
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0.75;
+}
+
+div.promoted-attribute-cell:not(:has(input[type="checkbox"])) > label::after {
+    content: ":";
+}
+
+div.promoted-attribute-cell div.input-group {
+    min-height: auto;
+    padding: 1px 6px;
+}
+
+div.promoted-attribute-cell input {
+    padding: 2px 8px;
+    font-weight: 500;
+}
+
+div.promoted-attribute-cell input[type="text"] {
+    width: 10em !important;
+}
+
+div.promoted-attribute-cell input[type="number"] {
+    width: 6em !important;
+}
+
+div.promoted-attribute-cell span.open-external-link-button {
+    display: flex;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+div.promoted-attribute-cell .tn-checkbox {
+    --box-label-gap: 0;
+
+    height: 1cap;
+}
+
+/* Relocate the checkbox before the label */
+div.promoted-attribute-cell.promoted-attribute-label-boolean > div:first-of-type {
+    order: -1;
+    margin-right: 1.5em;
+}
+
+/* The element containing the "new attribute" and "remove this attribute button" */
+div.promoted-attribute-cell .multiplicity:has(span) {
+    --icon-button-size: 24px;
+
+    margin-left: 8px;
+    margin-right: calc(var(--pa-card-padding-left) - var(--pa-card-padding-right));
+    font-size: 0; /* Prevent whitespaces creating a gap between buttons */
+}
+
+/*
+ * Floating buttons
+ */
+
+ /* Floating buttons container */
+div#center-pane .floating-buttons-children {
+    opacity: 1;
+    min-height: var(--floating-button-height);
+    transform-origin: right;
+    box-shadow: 1px 1px 1px var(--floating-button-shadow-color);
+    background: var(--floating-button-background-color);
+    backdrop-filter: blur(10px) saturate(6);
+    border-radius: 6px;
+    transition: transform 250ms ease-out,
+                opacity 250ms ease-out;
+}
+
+ /* Floating buttons container (collapsed) */
+ div#center-pane .floating-buttons-children.temporarily-hidden {
+    display: flex !important;
+    opacity: 0;
+    transform: scaleX(0);
+    pointer-events: none;
+}
+
+/* Floating buttons */
+
+.floating-buttons-children {
+    --border-radius-size: 6px;
+}
+
+.floating-buttons-children > * {
+    margin: 0 !important;
+}
+
+div.floating-buttons-children > button,
+div.floating-buttons-children .floating-button {
+    width: var(--floating-button-width);
+    height: var(--floating-button-height);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: var(--floating-button-icon-size);
+    align-items: center;
+    color: var(--floating-button-color);
+}
+
+div.floating-buttons-children > button:hover,
+div.floating-buttons-children .floating-button:hover {
+    background: var(--floating-button-hover-background);
+    color: var(--floating-button-hover-color);
+}
+
+div.floating-buttons-children > button:active,
+div.floating-buttons-children .floating-button:active {
+    font-size: calc(var(--floating-button-icon-size) * 0.85);
+}
+
+/* The first visible floating button */
+div.floating-buttons-children > *:nth-child(1 of .visible) {
+    --border-radius: var(--border-radius-size) 0 0 var(--border-radius-size);
+    border-radius: var(--border-radius);
+}
+
+ /* "Show / hide floating buttons" buttons */
+
+ @keyframes floating-buttons-show-hide-button-animation {
+    from {
+        transform: rotate(180deg);
+    } to {
+        transform: rotate(0);
+    }
+}
+
+div.floating-buttons-children .close-floating-buttons-button,
+div.floating-buttons .show-floating-buttons-button {
+    margin-top: calc((var(--floating-button-height) - var(--floating-button-show-hide-button-size)) / 2);
+    width: var(--floating-button-show-hide-button-size);
+    height: var(--floating-button-show-hide-button-size);
+    padding: 0;
+    border: 0;
+    font-size: calc(var(--floating-button-show-hide-button-size) * .8);
+}
+
+div.floating-buttons-children .close-floating-buttons-button:active,
+div.floating-buttons .show-floating-buttons-button:active {
+    font-size: calc(var(--floating-button-show-hide-button-size) * .65);
+    background: transparent!important;
+}
+
+div.floating-buttons-children .close-floating-buttons-button::before,
+div.floating-buttons .show-floating-buttons-button::before {
+    display: block;
+    line-height: 1;
+}
+
+/* "Show buttons" button */
+
+div.floating-buttons .show-floating-buttons-button {
+    box-shadow: var(--floating-button-show-button-shadow);
+    background: var(--floating-button-show-button-background);
+    color: var(--floating-button-show-button-color);
+    backdrop-filter: blur(10px);
+}
+
+div.floating-buttons .show-floating-buttons-button::before {
+    animation: floating-buttons-show-hide-button-animation 400ms ease-out;
+}
+ 
+div.floating-buttons .show-floating-buttons-button:hover,
+div.floating-buttons .show-floating-buttons-button:active {
+    box-shadow: var(--floating-button-show-button-hover-shadow);
+    background: var(--floating-button-show-button-hover-background) !important;
+    color: var(--floating-button-show-button-color) !important;
+}
+
+/* "Hide buttons" button */
+
+div.floating-buttons-children:not(.temporarily-hidden) .close-floating-buttons-button::before {
+    animation: floating-buttons-show-hide-button-animation 400ms ease-out;
+}
+
+div.floating-buttons-children .close-floating-buttons {
+    border-radius: 0 var(--border-radius-size) var(--border-radius-size) 0;
+    overflow: hidden;
+}
+
+div.floating-buttons-children .close-floating-buttons {
+    margin-left: 0 !important;
+    background: var(--floating-button-hide-button-background);
+    color: var(--floating-button-hide-button-color);
+}
+
+div.floating-buttons-children .close-floating-buttons:has(.close-floating-buttons-button:hover) {
+    background: var(--floating-button-hover-background);
+    color: var(--floating-button-hover-color);
+}
+
+/* Backlink count */
+
+.backlinks-widget .backlinks-ticker {
+    height: 100%;
+    padding: 0 10px;
+    border-radius: var(--border-radius);
+    background: transparent;
+    user-select: none;
+}
+
+.backlinks-widget .backlinks-ticker:hover {
+    background: var(--floating-button-hover-background);
+}
+
+.backlinks-widget .backlinks-items {
+    --menu-padding-size: 20px;
+}
+
+/* TODO: Restyle the path */
+.backlinks-widget .backlinks-items .note-path {
+    padding-inline-start: 8px;
+}
+
+/* Copy image reference */
+
+.floating-buttons .copy-image-reference-button .hidden-image-copy {
+    /* Take out of the the hidden image from flexbox to prevent the layout being affected */
+    position: absolute;
+}
+
+/* Code, relation map buttons */
+
+.floating-buttons .code-buttons-widget,
+.floating-buttons .relation-map-buttons {
+    gap: 0;
+}
+
+/* The highlight animation */
+
+@keyframes floating-button-highlight {
+    from {
+        background: var(--floating-button-background);
+        color: var(--floating-button-color);
+    } to {
+        background: var(--floating-button-hover-background);
+        color: var(--floating-button-hover-color);
+    }
+}
+
+.floating-buttons .bx-tada {
+    /* The class is applied for 1700ms */
+    animation: floating-button-highlight 425ms ease-in-out alternate infinite;
+}
+
+.floating-buttons .bx-tada::before {
+    font-size: var(--floating-button-icon-size);
+}
+
+/*
+ * Find and replace bar
+ */
+
+ .find-replace-widget {
+    container-type: inline-size;
+    border-top: 3px solid var(--root-background) !important;
+}
+
+.find-replace-widget > div {
+    padding: 8px;
+}
+
+.find-replace-widget > div + div {
+    padding-top: 0;
+}
+
+div.find-replace-widget div.find-widget-found-wrapper > span {
+    min-width: 50px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* The up / down buttons of the "Find in text" input */
+.find-replace-widget .input-group button {
+    font-size: 1.3em;
+}
+
+.find-replace-widget .form-check {
+    padding-left: 0;
+    white-space: nowrap;
+}
+
+.find-replace-widget .form-check .form-check-input {
+    margin-left: 0;
+}
+
+/* Narrow version */
+@container (max-width: 600px) {
+    .find-replace-widget > *,
+    .find-replace-widget input,
+    .find-replace-widget button.btn.btn-sm {
+        font-size: .9em;
+    }
+
+    .find-widget-box {
+        position: relative;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .find-widget-box,
+    .replace-widget-box {
+        padding-right: 3em !important;
+    }
+
+    .find-widget-close-button {
+        position: absolute;
+        top: .85em;
+        right: .5em;
+    }
+
+    .find-widget-box > * {
+        margin: unset !important;
+    }
+
+    div.find-widget-search-term-input-group {
+        margin-bottom: 8px;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .find-widget-found-wrapper,
+    .find-widget-found-wrapper > span {
+        min-width: 0 !important;
+    }
+
+    .find-widget-spacer {
+        display: none;
+    }
+
+    .form-check {
+        min-height: unset;
+        margin-bottom: unset;
+    }
+
+    .replace-widget-box {
+        gap: 8px;
+    }
+
+    .replace-widget-box > * {
+        margin-right: unset !important;
+    }
+
+    div.replace-widget-box button.btn.btn-sm {
+        min-width: unset;
+        white-space: nowrap;
+    }
+}
+
+/*
+ * RIGHT PANE: TABLE OF CONTENTS AND HIGHLIGHT LIST
+ */
+
+#right-pane {
+    background: var(--main-background-color);
+}
+
+#right-pane div.card-header {
+    align-items: center;
+    border: 0;
+}
+
+#right-pane .card-header-title {
+    margin-top: 2px;
+    font-weight: 600;
+    font-size: .85em;
+    letter-spacing: .3pt;
+    color: var(--right-pane-heading-color);
+}
+
+#right-pane .card-header-buttons {
+    align-items: center;
+    top: 0;
+}
+
+#right-pane .toc-widget,
+#right-pane .highlights-list-widget {
+    padding: 0 0 0 10px;
+}
+
+#right-pane .toc li,
+#right-pane .highlights-list li {
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    border-radius: 4px;
+    text-align: unset;
+    transition:
+        background-color 150ms ease-in,
+        color 150ms ease-in;
+}
+
+#right-pane .highlights-list li {
+    line-height: 1.2;
+    padding: 8px;
+}
+
+#right-pane .toc li::marker,
+#right-pane .highlights-list li::marker {
+    color: var(--muted-text-color);
+}
+
+#right-pane .toc li:hover,
+#right-pane .highlights-list li:hover {
+    background: var(--right-pane-item-hover-background);
+    color: var(--right-pane-item-hover-color);
+    font-weight: normal;
+    transition: background-color 300ms ease-out color 300ms ease-out;
+}
+
+#right-pane .toc li:active,
+#right-pane .highlights-list li:active {
+    background: transparent;
+    transition: none;
+}
+
+/** Canvas **/
+
+.excalidraw {
+    --border-radius-lg: 6px;
+}
+
+.excalidraw .Island {
+    backdrop-filter: var(--dropdown-backdrop-filter);
+}
+
+.excalidraw .Island.App-toolbar {
+    --island-bg-color: var(--floating-button-background-color);
+    --shadow-island: 1px 1px 1px var(--floating-button-shadow-color);
+}
+
+.excalidraw .dropdown-menu {
+    border: unset !important;
+    box-shadow: unset !important;    
+    background-color: transparent !important;
+    --island-bg-color: var(--menu-background-color);
+    --shadow-island: 0px 10px 20px rgba(0, 0, 0, var(--dropdown-shadow-opacity));
+    --default-border-color: var(--bs-dropdown-divider-bg);
+    --button-hover-bg: var(--hover-item-background-color);
+}
+
+.excalidraw .dropdown-menu .dropdown-menu-container {
+    border-radius: var(--dropdown-border-radius);
+}
+
+.excalidraw .dropdown-menu .dropdown-menu-container > div:not([class]):not(:last-child) {
+    margin-left: calc(var(--padding) * var(--space-factor) * -1) !important;
+    margin-right: calc(var(--padding) * var(--space-factor) * -1) !important;
+}
+
+.excalidraw .dropdown-menu:before {
+    content: unset !important;
+}

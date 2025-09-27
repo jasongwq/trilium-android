@@ -1,0 +1,41 @@
+{
+  "about": {
+    "title": "O notatkach Trilium",
+    "homepage": "Strona główna:",
+    "app_version": "Wersja aplikacji:",
+    "db_version": "Wersja bazy danych:",
+    "sync_version": "Wersja synchronizacji:",
+    "build_date": "Zbudowano:",
+    "build_revision": "Rewizja zbudowania:",
+    "data_directory": "Katalog z danymi:"
+  },
+  "toast": {
+    "critical-error": {
+      "title": "Błąd krytyczny",
+      "message": "Wystąpił krytyczny błąd uniemożliwiający uruchomienie aplikacji:\n\n{{message}}\n\nJest to spowodowane najprawdopodobniej niespodziewanym błędem skryptu. Spróbuj uruchomić aplikację ponownie w trybie bezpiecznym i zaadresuj problem."
+    }
+  },
+  "add_link": {
+    "add_link": "Dodaj link"
+  },
+  "branch_prefix": {
+    "save": "Zapisz"
+  },
+  "bulk_actions": {
+    "labels": "Etykiety",
+    "notes": "Notatki",
+    "other": "Inne",
+    "relations": "Powiązania"
+  },
+  "confirm": {
+    "ok": "OK",
+    "cancel": "Anuluj"
+  },
+  "delete_notes": {
+    "cancel": "Anuluj",
+    "close": "Zamknij"
+  },
+  "export": {
+    "close": "Zamknij"
+  }
+}

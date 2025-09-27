@@ -1,0 +1,147 @@
+{
+  "about": {
+    "title": "Lisätietoja Trilium Notes:ista",
+    "homepage": "Kotisivu:",
+    "app_version": "Sovelluksen versio:",
+    "db_version": "Tietokannan versio:",
+    "build_date": "Koontipäivämäärä:",
+    "data_directory": "Datakansio:",
+    "sync_version": "Synkronoinnin versio:",
+    "build_revision": "Sovelluksen versio:"
+  },
+  "toast": {
+    "critical-error": {
+      "title": "Kriittinen virhe"
+    },
+    "widget-error": {
+      "title": "Widgetin luonti epäonnistui"
+    }
+  },
+  "add_link": {
+    "add_link": "Lisää linkki",
+    "link_title": "Linkin otsikko",
+    "button_add_link": "Lisää linkki",
+    "note": "Muistio",
+    "search_note": "etsi muistiota sen nimellä"
+  },
+  "branch_prefix": {
+    "prefix": "Etuliite: ",
+    "save": "Tallenna"
+  },
+  "bulk_actions": {
+    "bulk_actions": "Massatoiminnot",
+    "available_actions": "Saatavilla olevat toiminnot",
+    "chosen_actions": "Valitut toiminnot",
+    "execute_bulk_actions": "Toteuta massatoiminnot",
+    "bulk_actions_executed": "Massatoiminnot on toteutettu onnistuneesti.",
+    "none_yet": "Ei vielä... lisää toiminto klikkaamalla jotiain yllä saatavilla olevaa yltä.",
+    "labels": "Merkit",
+    "relations": "Suhteet",
+    "notes": "Muistiot",
+    "other": "Muut",
+    "affected_notes": "Vaikuttaa muistioihin"
+  },
+  "clone_to": {
+    "clone_notes_to": "Kopioi muistiot...",
+    "help_on_links": "Apua linkkeihin",
+    "notes_to_clone": "Kopioitavat muistiot",
+    "target_parent_note": "Kohteen päämuistio",
+    "search_for_note_by_its_name": "ensi muistiota sen nimellä",
+    "cloned_note_prefix_title": "Kopioitu muistia näytetään puussa annetulla etuliitteellä",
+    "prefix_optional": "Etuliite (valinnainen)",
+    "clone_to_selected_note": "Kopioi valittuun muistioon",
+    "note_cloned": "Muistio \"{{clonedTitle}}\" on kopioitu \"{{targetTitle}}\""
+  },
+  "confirm": {
+    "confirmation": "Vahvistus",
+    "cancel": "Peruuta",
+    "ok": "OK",
+    "also_delete_note": "Poista myös muistio"
+  },
+  "delete_notes": {
+    "delete_notes_preview": "Poista muistion esikatselu",
+    "close": "Sulje",
+    "notes_to_be_deleted": "Seuraavat muistiot tullaan poistamaan ({{notesCount}})",
+    "no_note_to_delete": "Muistioita ei poisteta (vain kopiot).",
+    "cancel": "Peruuta",
+    "ok": "OK"
+  },
+  "export": {
+    "export_note_title": "Vie muistio",
+    "close": "Sulje",
+    "format_html": "HTML - suositeltu, sillä se säilyttää kaikki formatoinnit",
+    "format_markdown": "Markdown - tämä säilyttää suurimman osan formatoinneista.",
+    "opml_version_1": "OPML v1.0 - pelkkä teksti",
+    "opml_version_2": "OPML v2.0 - sallii myös HTML:n",
+    "export": "Vie",
+    "choose_export_type": "Valitse ensin viennin tyyppi",
+    "export_status": "Viennin tila",
+    "export_in_progress": "Vienti käynnissä: {{progressCount}}",
+    "export_finished_successfully": "Vienti valmistui onnistuneesti.",
+    "format_pdf": "PDF - tulostukseen ja jakamiseen."
+  },
+  "help": {
+    "title": "Lunttilappu",
+    "noteNavigation": "Muistion navigointi",
+    "goUpDown": "mene ylös/alas muistioiden listassa",
+    "collapseExpand": "pienennä/suurenna solmu",
+    "notSet": "ei asetettu",
+    "goBackForwards": "mene taaksepäin/eteenpäin historiassa",
+    "jumpToParentNote": "Hyppää ylempään muistioon",
+    "collapseWholeTree": "pienennä koko muistio puu",
+    "onlyInDesktop": "Vain työpöytänäkymässä (Electron build)",
+    "openEmptyTab": "Avaa tyhjä välilehti",
+    "closeActiveTab": "sulje aktiivinen välilehti",
+    "activateNextTab": "aktivoi seuraava välilehti",
+    "activatePreviousTab": "aktivoi edellinen välilehti",
+    "creatingNotes": "Luo muistiota",
+    "movingCloningNotes": "Siirrä / kopioi muistioita",
+    "moveNoteUpHierarchy": "siirrä muistio ylöspäin listassa",
+    "selectNote": "valitse muistio",
+    "editingNotes": "Muokkaa solmua",
+    "createEditLink": "luo / muokkaa ulkoista linkkiä",
+    "createInternalLink": "luo sisäinen linkki",
+    "insertDateTime": "lisää nykyinen päivämäärä ja aika hiiren kohdalle",
+    "troubleshooting": "Vianmääritys",
+    "reloadFrontend": "lataa Trilium:in käyttöliittymä",
+    "showDevTools": "näytä kehittäjätyökalut",
+    "showSQLConsole": "näytä SQL konsoli",
+    "other": "Muut"
+  },
+  "import": {
+    "importIntoNote": "Tuo muistioon",
+    "chooseImportFile": "Valitse tuonnin tiedosto",
+    "options": "Valinnat",
+    "safeImport": "Turvallinen tuonti",
+    "shrinkImages": "Kutista kuvat",
+    "replaceUnderscoresWithSpaces": "Korvaa alaviivat väleillä tuotujen muistioiden tiedostonimissä",
+    "import": "Tuo",
+    "failed": "Tuonti epäonnistui: {{message}}.",
+    "html_import_tags": {
+      "title": "HTML Tuonnin Tunnisteet",
+      "placeholder": "Lisää HTML tunnisteet, yksi per rivi"
+    },
+    "import-status": "Tuonnin tila",
+    "in-progress": "Tuonti vaiheessa: {{progress}}",
+    "successful": "Tuonti valmistui onnistuneesti."
+  },
+  "include_note": {
+    "dialog_title": "Sisällytä muistio",
+    "label_note": "Muistio",
+    "placeholder_search": "etsi muistiota sen nimellä",
+    "box_size_small": "pieni (~ 10 riviä)",
+    "box_size_medium": "keskisuuri (~ 30 riviä)",
+    "button_include": "Sisällytä muistio"
+  },
+  "info": {
+    "modalTitle": "Info viesti",
+    "closeButton": "Sulje",
+    "okButton": "OK"
+  },
+  "jump_to_note": {
+    "search_button": "Etsi koko tekstistä"
+  },
+  "call_to_action": {
+    "dismiss": "Hylkää"
+  }
+}

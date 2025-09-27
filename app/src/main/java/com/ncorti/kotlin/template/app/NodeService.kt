@@ -16,9 +16,9 @@ import java.lang.Exception
 class NodeService : Service() {
     private val TAG = "NodeService"
     // Assets中的文件名和目录
-    private val NODE_DIR_NAME = "nodejs"       // Assets中的Node.js目录
-    private val JS_SCRIPT_NAME = "app.js"      // 待运行的JS脚本
-    private val NODE_EXECUTABLE_PATH = "bin/node" // Node可执行文件相对路径
+    private val NODE_DIR_NAME = "trilium"       // Assets中的Node.js目录
+    private val JS_SCRIPT_NAME = "main.cjs"      // 待运行的JS脚本
+    private val NODE_EXECUTABLE_PATH = "node/bin/node" // Node可执行文件相对路径
     // 应用私有目录中的文件
     private lateinit var nodeDir: File         // 私有目录中的Node.js目录
     private lateinit var nodeExecutableFile: File // Node可执行文件
@@ -38,11 +38,10 @@ class NodeService : Service() {
         // 初始化文件路径
         nodeDir = File(filesDir, NODE_DIR_NAME)
         nodeExecutableFile = File(nodeDir, NODE_EXECUTABLE_PATH)
-        jsScriptFile = File(filesDir, JS_SCRIPT_NAME)
+        jsScriptFile = File(nodeDir, JS_SCRIPT_NAME)
         
         // 1. 从Assets复制Node目录和JS脚本
         copyAssetDirectory(NODE_DIR_NAME, nodeDir)
-        copyAssetToPrivateDir(JS_SCRIPT_NAME, jsScriptFile)
         
         // 2. 为Node可执行文件设置权限
         setExecutablePermission(nodeExecutableFile)
@@ -212,15 +211,41 @@ class NodeService : Service() {
             }
 
             try {
-                val command = listOf(
-                    nodeExecutableFile.absolutePath,
-                    jsScriptFile.absolutePath
-                )
-                Log.d(TAG, "执行命令: ${command.joinToString(" ")}")
+              // 1. 构建Node启动命令（node可执行文件 + JS脚本路径）
+             val command = listOf(
+                 nodeExecutableFile.absolutePath,
+                 jsScriptFile.absolutePath
+             )
+             Log.d(TAG, "执行命令: ${command.joinToString(" ")}")
+             // 2. 创建ProcessBuilder并配置环境变量
+             val processBuilder = ProcessBuilder(command)
+                 .redirectErrorStream(true) // 合并错误流到输出流，方便调试
+             // 3. 获取进程环境变量集合（默认继承当前应用环境）
+             val env = processBuilder.environment()
+             
+             // 4. 设置OPENSSL_CONF：指向Node目录下bin文件夹中的空openssl.cnf
+             val opensslConfPath = File(nodeDir, "node/bin/openssl.cnf").absolutePath
+             env["OPENSSL_CONF"] = opensslConfPath // 关键：指定OpenSSL配置文件路径
+             
+             // 5. 设置LD_LIBRARY_PATH（可选，若Node依赖自定义库，指向lib目录）
+             val nodeLibPath = File(nodeDir, "node/lib").absolutePath
+             env["LD_LIBRARY_PATH"] = nodeLibPath // 让Node找到依赖的动态库（如libnode.so）
+             Log.d(TAG, "HOME 配置: ${env["HOME"]}")
+             val homePath = filesDir.absolutePath
+           env["HOME"] = homePath
+// 打印环境变量配置（用于验证）
+             Log.d(TAG, "HOME 配置: ${env["HOME"]}")
+             Log.d(TAG, "OPENSSL_CONF 配置: ${env["OPENSSL_CONF"]}")
+             Log.d(TAG, "LD_LIBRARY_PATH 配置: ${env["LD_LIBRARY_PATH"]}")
+             // 检查 OPENSSL_CONF 指向的文件是否存在
+             val opensslConfFile = File(env["OPENSSL_CONF"] ?: "")
+             Log.d(TAG, "OPENSSL_CONF 文件是否存在: ${opensslConfFile.exists()}")
+             // 启动进程前日志
+             Log.d(TAG, "即将启动 Node 进程...")
 
-                val processBuilder = ProcessBuilder(command)
-                    .redirectErrorStream(true)
-                nodeProcess = processBuilder.start()
+             // 7. 启动进程
+             nodeProcess = processBuilder.start()
+
                 
                 // 兼容处理PID获取（API 26+支持）
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -239,11 +264,32 @@ class NodeService : Service() {
             }
         }.start()
     }
+private fun readProcessOutput(inputStream: InputStream?) {
+     if (inputStream == null) {
+         Log.e(TAG, "readProcessOutput: 输入流为空")
+         return
+     }
+     Log.d(TAG, "开始读取 Node 进程输出流...")
+     // 用线程单独读取，避免阻塞主线程（即使之前在子线程，也要确保流读取不卡住）
+     Thread {
+         try {
+             val reader = BufferedReader(InputStreamReader(inputStream, Charsets.UTF_8))
+             var line: String?
+             // 循环读取，直到流结束（进程退出）
+             while (reader.readLine().also { line = it } != null) {
+                 Log.d("NodeOutput", line ?: "空行")
+             }
+             Log.d(TAG, "Node 进程输出流读取完毕（进程可能已退出）")
+         } catch (e: Exception) {
+             Log.e(TAG, "读取输出流抛出异常", e)
+         }
+     }.start()
+ }
 
     /**
      * 读取进程输出
      */
-    private fun readProcessOutput(inputStream: InputStream?) {
+    private fun readProcessOutputi2(inputStream: InputStream?) {
         inputStream ?: return
         BufferedReader(InputStreamReader(inputStream)).use { reader ->
             var line: String?

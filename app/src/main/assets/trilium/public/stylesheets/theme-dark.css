@@ -1,0 +1,99 @@
+:root {
+    --theme-style: dark;
+
+    --main-font-family: Montserrat;
+    --main-font-size: normal;
+
+    --tree-font-family: Montserrat;
+    --tree-font-size: normal;
+
+    --detail-font-family: Montserrat;
+    --detail-font-size: normal;
+
+    --monospace-font-family: JetBrainsLight;
+    --monospace-font-size: normal;
+
+    --main-background-color: #333;
+    --main-text-color: #ccc;
+    --main-border-color: #aaa;
+    --dropdown-border-color: #555;
+    --dropdown-shadow-opacity: 0.4;
+    --dropdown-item-icon-destructive-color: #de6e5b;
+    --disabled-tooltip-icon-color: #7fd2ef;
+
+    --accented-background-color: #555;
+    --more-accented-background-color: #777;
+
+    --button-background-color: transparent;
+    --button-border-color: #ccc;
+    --button-text-color: currentColor;
+    --button-border-radius: 5px;
+    --button-disabled-background-color: transparent;
+    --button-disabled-text-color: #999;
+
+    --primary-button-background-color: #888;
+    --primary-button-text-color: white;
+    --primary-button-border-color: #999;
+
+    --muted-text-color: #bbb;
+
+    --input-text-color: #ccc;
+    --input-background-color: #333;
+
+    --hover-item-text-color: #ccc;
+    --hover-item-background-color: transparent;
+    --hover-item-border-color: #aaa;
+
+    --active-item-text-color: black;
+    --active-item-background-color: #777;
+    --active-item-border-color: transparent;
+
+    --menu-text-color: white;
+    --menu-background-color: #222;
+
+    --modal-background-color: #333;
+    --modal-backdrop-color: #444;
+
+    --left-pane-background-color: #1f1f1f;
+    --left-pane-text-color: #aaaaaa;
+
+    --launcher-pane-background-color: #1f1f1f;
+    --launcher-pane-text-color: #aaaaaa;
+
+    --active-tab-background-color: #666;
+    --active-tab-hover-background-color: #737373;
+    --active-tab-text-color: #ccc;
+
+    --inactive-tab-background-color: #444;
+    --inactive-tab-hover-background-color: #525252;
+    --inactive-tab-text-color: #bbb;
+
+    --scrollbar-border-color: #666;
+    --scrollbar-background-color: #333;
+    --selection-background-color: #3399FF70;
+    --tooltip-background-color: #333;
+    --link-color: lightskyblue;
+
+    --mermaid-theme: dark;
+    --native-titlebar-background: #00000000;
+}
+
+body ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.excalidraw.theme--dark {
+    --theme-filter: invert(80%) hue-rotate(180deg) !important;
+}
+
+body .todo-list input[type="checkbox"]:not(:checked):before {
+    border-color: var(--muted-text-color) !important;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+.ck-content pre {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
+}

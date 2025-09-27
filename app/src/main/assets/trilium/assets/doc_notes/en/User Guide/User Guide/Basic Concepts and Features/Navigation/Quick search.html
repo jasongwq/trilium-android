@@ -1,0 +1,150 @@
+<figure class="image image-style-align-center">
+  <img style="aspect-ratio:659/256;" src="Quick search_image.png" width="659"
+  height="256">
+</figure>
+<p>The <em>Quick search</em> function does a full-text search (that is, it
+  searches through the content of notes and not just the title of a note)
+  and displays the result in an easy-to-access manner.</p>
+<p>The alternative to the quick search is the&nbsp;<a class="reference-link"
+  href="#root/_help_eIg8jdvaoNNd">Search</a>&nbsp;function, which opens in
+  a dedicated tab and has support for advanced queries.</p>
+<p>For even faster navigation, it's possible to use&nbsp;<a class="reference-link"
+  href="#root/_help_F1r9QtzQLZqm">Jump to...</a>&nbsp;which will only search
+  through the note titles instead of the content.</p>
+<h2>Layout</h2>
+<p>Based on the&nbsp;<a class="reference-link" href="#root/_help_x0JgW8UqGXvq">Vertical and horizontal layout</a>,
+  the quick search is placed:</p>
+<ul>
+  <li data-list-item-id="eb498e0518c4efc433c9569270c9c7a5c">On the vertical layout, it is displayed right above the&nbsp;<a class="reference-link"
+    href="#root/_help_oPVyFC7WL2Lp">Note Tree</a>.</li>
+  <li data-list-item-id="e6a9159606a513e839ca71ff4735857bb">On the horizontal layout, it is displayed in the&nbsp;<a class="reference-link"
+    href="#root/_help_xYmIYSP6wE3F">Launch Bar</a>, where it can be positioned
+    just like any other icon.</li>
+</ul>
+<h2>Search Features</h2>
+<p>Quick search includes the following features:</p>
+<h3>Content Previews</h3>
+<p>Search results now display a 200-character preview of the note content
+  below the note title. This preview shows the context where your search
+  terms appear, making it easier to identify the right note without opening
+  it.</p>
+<h3>Infinite Scrolling</h3>
+<p>Results are loaded progressively as you scroll:</p>
+<ul>
+  <li data-list-item-id="e6d151aab6b52d08e9a93e6f9c29c081a">Initial display shows 15 results</li>
+  <li data-list-item-id="e006eeac7574a398324f214edcb9a383b">Scrolling near the bottom automatically loads 10 more results</li>
+  <li
+  data-list-item-id="e5f6fcb1ec0d496fcf599fa90c3911c89">Continue scrolling to load all matching notes</li>
+</ul>
+<h3>Visual Features</h3>
+<ul>
+  <li data-list-item-id="e44f3402a55ac37c63abae20490d66d70"><strong>Highlighting</strong>: Search terms appear in bold with accent
+    colors</li>
+  <li data-list-item-id="e1c8743ac639f15750171788790df2bb0"><strong>Separation</strong>: Results are separated with dividers</li>
+  <li
+  data-list-item-id="ec5c5dbaa44ba426d220718804b9b27db"><strong>Theme Support</strong>: Highlighting colors adapt to light/dark
+    themes</li>
+</ul>
+<h3>Search Behavior</h3>
+<p>Quick search uses progressive search:</p>
+<ol>
+  <li data-list-item-id="e9a34edaccc0174140e1183c5e43a2327">Shows exact matches first</li>
+  <li data-list-item-id="e5b751c044ae5189095fd08655a55372f">Includes fuzzy matches when exact results are fewer than 5</li>
+  <li data-list-item-id="ee63c39a04b7511cd4e031cdd963f58d2">Exact matches appear before fuzzy matches</li>
+</ol>
+<h3>Keyboard Navigation</h3>
+<ul>
+  <li data-list-item-id="e1161754a60afdea3656561abcb46f9ea">Press <code>Enter</code> to open the first result</li>
+  <li data-list-item-id="ebdffa32bcd3d8e24c3938b472521034d">Use arrow keys to navigate through results</li>
+  <li data-list-item-id="eed08e1e6867dcef7eaa6ce7a21fd5e02">Press <code>Escape</code> to close the quick search</li>
+</ul>
+<h2>Using Quick Search</h2>
+<ol>
+  <li data-list-item-id="e88738101cdad95c7ffe2fc45d19250b7"><strong>Typo tolerance</strong>: Search finds results despite minor typos</li>
+  <li
+  data-list-item-id="ead4c50c8ae5e86987073741285271140"><strong>Content previews</strong>: 200-character snippets show match context</li>
+    <li
+    data-list-item-id="ee135ac66eafef5962b5221fa149dc31c"><strong>Infinite scrolling</strong>: Additional results load on scroll</li>
+      <li
+      data-list-item-id="ebecf1647bb3e6631383fa1cad5e0d222"><strong>Specific terms</strong>: Specific search terms return more focused
+        results</li>
+        <li data-list-item-id="e7d6ee3a67dbf55e7c72788cde795f2b2"><strong>Match locations</strong>: Bold text indicates where matches occur</li>
+</ol>
+<h2>Quick Search - Exact Match Operator</h2>
+<p>Quick Search now supports the exact match operator (<code>=</code>) at
+  the beginning of your search query. This allows you to search for notes
+  where the title or content exactly matches your search term, rather than
+  just containing it.</p>
+<h3>Usage</h3>
+<p>To use exact match in Quick Search:</p>
+<ol>
+  <li data-list-item-id="e98c91a13502a0ddd321432cd2cdab193">Start your search query with the <code>=</code> operator</li>
+  <li data-list-item-id="e0db9fc3f530c8e0eb96f4df5ef74d955">Follow it immediately with your search term (no space after <code>=</code>)</li>
+</ol>
+<h4>Examples</h4>
+<ul>
+  <li data-list-item-id="e188d5c0a39291e2f665072b02b4b6cc0"><code>=example</code> - Finds notes with title exactly "example" or content
+    exactly "example"</li>
+  <li data-list-item-id="e275568bc5123c979fddff51fac370983"><code>=Project Plan</code> - Finds notes with title exactly "Project Plan"
+    or content exactly "Project Plan"</li>
+  <li data-list-item-id="e04c10070d9800148f641efcbee16ab3d"><code>='hello world'</code> - Use quotes for multi-word exact matches</li>
+</ul>
+<h4>Comparison with Regular Search</h4>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Query</th>
+        <th>Behavior</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>example</code>
+        </td>
+        <td>Finds all notes containing "example" anywhere in title or content</td>
+      </tr>
+      <tr>
+        <td><code>=example</code>
+        </td>
+        <td>Finds only notes where the title equals "example" or content equals "example"
+          exactly</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h3>Technical Details</h3>
+<p>When you use the <code>=</code> operator:</p>
+<ul>
+  <li data-list-item-id="ebd357e2f6afa77ccb3aed347103d47c3">The search performs an exact match on note titles</li>
+  <li data-list-item-id="e64c84d77017e4cd43fe95c0e4f537044">For note content, it looks for exact matches of the entire content</li>
+  <li
+  data-list-item-id="ef4f790816f24b9484fea127837025935">Partial word matches are excluded</li>
+    <li data-list-item-id="e94a53c59dc4f1a8bef101df66538d06a">The search is case-insensitive</li>
+</ul>
+<h3>Limitations</h3>
+<ul>
+  <li data-list-item-id="e4ed2c12de6681eb26d2ec2daa1985956">The <code>=</code> operator must be at the very beginning of the search
+    query</li>
+  <li data-list-item-id="e30845adb77a12106475b88b68b614009">Spaces after <code>=</code> will treat it as a regular search</li>
+  <li data-list-item-id="e89322d60b3f5cb6b2b318cc7247721cf">Multiple <code>=</code> operators (like <code>==example</code>) are treated
+    as regular text search</li>
+</ul>
+<h3>Use Cases</h3>
+<p>This feature is particularly useful when:</p>
+<ul>
+  <li data-list-item-id="eb23079c90785534a68963977e993d253">You know the exact title of a note</li>
+  <li data-list-item-id="e92f02cb8b28fc02f264ebeb09376af91">You want to find notes with specific, complete content</li>
+  <li data-list-item-id="e37aa1707a8440213fe404d1ed7a2e941">You need to distinguish between notes with similar but not identical titles</li>
+  <li
+  data-list-item-id="e8b04a0a97aa970e6984370ff17160208">You want to avoid false positives from partial matches</li>
+</ul>
+<h3>Related Features</h3>
+<ul>
+  <li data-list-item-id="e3d0656590d49c6e09ae5f39a0a773dff">For more complex exact matching queries, use the full <a href="Search.md">Search</a> functionality</li>
+  <li
+  data-list-item-id="e7d77021ebedb1b1d25e8bfe2726af21e">For fuzzy matching (finding results despite typos), use the <code>~=</code> operator
+    in the full search</li>
+    <li data-list-item-id="eabcf1ff7a9dfa822192ee9afe3268469">For partial matches with wildcards, use operators like <code>*=*</code>, <code>=*</code>,
+      or <code>*=</code> in the full search</li>
+</ul>

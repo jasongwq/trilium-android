@@ -1,0 +1,1 @@
+function t(a){const n=a.COMMENT(/\(\*/,/\*\)/),e={className:"attribute",begin:/^[ ]*[a-zA-Z]+([\s_-]+[a-zA-Z]+)*/},s={begin:/=/,end:/[.;]/,contains:[n,{className:"meta",begin:/\?.*\?/},{className:"string",variants:[a.APOS_STRING_MODE,a.QUOTE_STRING_MODE,{begin:"`",end:"`"}]}]};return{name:"Extended Backus-Naur Form",illegal:/\S/,contains:[n,e,s]}}export{t as default};

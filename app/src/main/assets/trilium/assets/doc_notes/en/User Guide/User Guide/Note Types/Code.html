@@ -1,0 +1,53 @@
+<p>Trilium supports creating "code" notes, i.e. notes which contain some
+  sort of formal code - be it programming language (C++, JavaScript), structured
+  data (JSON, XML) or other types of codes (CSS etc.).</p>
+<p>This can be useful for a few things:</p>
+<ul>
+  <li>computer programmers can store code snippets as notes with syntax highlighting</li>
+  <li>JavaScript code notes can be executed inside Trilium for some extra functionality
+    <ul>
+      <li>we call such JavaScript code notes "scripts" - see&nbsp;<a class="reference-link"
+        href="#root/_help_CdNpE2pqjmI6">Scripting</a>
+      </li>
+    </ul>
+  </li>
+  <li>JSON, XML etc. can be used as storage for structured data (typically used
+    in conjunction with scripting)</li>
+</ul>
+<p>For shorter snippets of code that can be embedded in&nbsp;<a href="#root/_help_iPIMuisry3hd">Text</a>&nbsp;notes,
+  see&nbsp;<a href="#root/_help_QxEyIjRBizuC">Code blocks</a>.</p>
+<p>
+  <img src="Code_image.png">
+</p>
+<h2>Adjusting the language of a code note</h2>
+<p>In the&nbsp;<a href="#root/_help_BlN9DFI679QC">Ribbon</a>, look for the <em>Note type</em> selector
+  and click it to reveal the possible note types. Inside of it there will
+  be a section called <em>Code</em>, select any one of the languages.</p>
+<p>
+  <img src="1_Code_image.png">
+</p>
+<h2>Adjusting the list of languages</h2>
+<p>Trilium supports syntax highlighting for many languages, but by default
+  displays only some of them. The supported languages can be adjusted by
+  going to&nbsp;<a href="#root/_help_4TIF1oA4VQRO">Options</a>, then <em>Code Notes</em> and
+  looking for the <em>Available MIME types in the dropdown</em> section. Simply
+  check any of the items to add them to the list, or un-check them to remove
+  them from the list.</p>
+<p>Note that the list of languages is not immediately refreshed, you'd have
+  to manually <a href="#root/_help_s8alTXmpFR61">refresh the application</a>.</p>
+<p>The list of languages is also shared with the&nbsp;<a href="#root/_help_QxEyIjRBizuC">Code blocks</a>&nbsp;feature
+  of&nbsp;<a href="#root/_help_iPIMuisry3hd">Text</a>&nbsp;notes.</p>
+<h2>Color schemes</h2>
+<p>Since Trilium 0.94.0 the colors of code notes can be customized by going&nbsp;
+  <a
+  class="reference-link" href="#root/_help_4TIF1oA4VQRO">Options</a>&nbsp;→ Code Notes and looking for the <em>Appearance</em> section.</p>
+<aside
+class="admonition note">
+  <p><strong>Why are there only a few themes whereas the code block themes for text notes have a lot?</strong>
+    <br>The reason is that Code notes use a different technology than the one
+    used in Text notes, and as such there is a more limited selection of themes.
+    If you find a CodeMirror 6 (not 5) theme that you would like to use, let
+    us know and we might consider adding it to the set of default themes. There
+    is no possibility of adding new themes (at least for now), since the themes
+    are defined in JavaScript and not at CSS level.</p>
+  </aside>

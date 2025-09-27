@@ -1,0 +1,26 @@
+{
+    "about": {
+        "homepage": "Giriş sayfası:",
+        "app_version": "Uygulama versiyonu:",
+        "db_version": "Veritabanı versiyonu:"
+    },
+    "branch_prefix": {
+        "save": "Kaydet"
+    },
+    "delete_notes": {
+        "close": "Kapat"
+    },
+    "export": {
+        "close": "Kapat"
+    },
+    "import": {
+        "chooseImportFile": "İçe aktarım dosyası",
+        "importDescription": "Seçilen dosya(lar) alt not olarak içe aktarılacaktır"
+    },
+    "info": {
+        "closeButton": "Kapat"
+    },
+    "protected_session_password": {
+        "close_label": "Kapat"
+    }
+}

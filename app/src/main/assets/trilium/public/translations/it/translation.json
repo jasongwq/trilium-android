@@ -1,0 +1,345 @@
+{
+    "about": {
+        "app_version": "Versione dell'app:",
+        "db_version": "Versione DB:",
+        "sync_version": "Versione Sync:",
+        "data_directory": "Cartella dati:",
+        "title": "Informazioni su Trilium Notes",
+        "build_date": "Data della build:",
+        "build_revision": "Revisione della build:",
+        "homepage": "Homepage:"
+    },
+    "toast": {
+        "critical-error": {
+            "title": "Errore critico",
+            "message": "Si è verificato un errore critico che impedisce l'avvio dell'applicazione client:\n\n{{message}}\n\nQuesto è probabilmente causato da un errore di script inaspettato. Prova a avviare l'applicazione in modo sicuro e controlla il problema."
+        },
+        "bundle-error": {
+            "title": "Non si è riusciti a caricare uno script personalizzato",
+            "message": "Lo script della nota con ID \"{{id}}\", dal titolo \"{{title}}\" non è stato inizializzato a causa di:\n\n{{message}}"
+        },
+        "widget-error": {
+            "title": "Impossibile inizializzare un widget",
+            "message-custom": "Il widget personalizzato della nota con ID \"{{id}}\", dal titolo \"{{title}}\" non è stato inizializzato a causa di:\n\n{{message}}",
+            "message-unknown": "Un widget sconosciuto non è stato inizializzato a causa di:\n\n{{message}}"
+        }
+    },
+    "add_link": {
+        "add_link": "Aggiungi un collegamento",
+        "note": "Nota",
+        "search_note": "cerca una nota per nome",
+        "link_title_mirrors": "il titolo del collegamento rispecchia il titolo della nota corrente",
+        "link_title_arbitrary": "il titolo del collegamento può essere modificato arbitrariamente",
+        "link_title": "Titolo del collegamento",
+        "button_add_link": "Aggiungi il collegamento <kbd>invio</kbd>",
+        "help_on_links": "Aiuto sui collegamenti"
+    },
+    "branch_prefix": {
+        "edit_branch_prefix": "Modifica il prefisso del ramo",
+        "help_on_tree_prefix": "Aiuto sui prefissi dell'Albero",
+        "prefix": "Prefisso: ",
+        "save": "Salva",
+        "branch_prefix_saved": "Il prefisso del ramo è stato salvato."
+    },
+    "bulk_actions": {
+        "bulk_actions": "Azioni massive",
+        "affected_notes": "Note influenzate",
+        "include_descendants": "Includi i discendenti della nota selezionata",
+        "available_actions": "Azioni disponibili",
+        "chosen_actions": "Azioni scelte",
+        "execute_bulk_actions": "Esegui le azioni massive",
+        "bulk_actions_executed": "Le azioni massive sono state eseguite con successo.",
+        "none_yet": "Ancora nessuna... aggiungi una azione cliccando su una di quelle disponibili sopra.",
+        "labels": "Etichette",
+        "relations": "Relazioni",
+        "notes": "Note",
+        "other": "Altro"
+    },
+    "clone_to": {
+        "clone_notes_to": "Clona note in...",
+        "help_on_links": "Aiuto sui collegamenti",
+        "notes_to_clone": "Note da clonare",
+        "target_parent_note": "Nodo padre obiettivo",
+        "search_for_note_by_its_name": "cerca una nota per nome",
+        "cloned_note_prefix_title": "Le note clonate saranno mostrate nell'albero delle note con il dato prefisso",
+        "prefix_optional": "Prefisso (opzionale)",
+        "clone_to_selected_note": "Clona sotto la nota selezionata <kbd>invio</kbd>",
+        "no_path_to_clone_to": "Nessun percorso per clonare dentro.",
+        "note_cloned": "La nota \"{{clonedTitle}}\" è stata clonata in \"{{targetTitle}}\""
+    },
+    "confirm": {
+        "cancel": "Annulla",
+        "ok": "OK",
+        "confirmation": "Conferma",
+        "are_you_sure_remove_note": "Sei sicuro di voler rimuovere la nota \"{{title}}\" dalla mappa delle relazioni? ",
+        "if_you_dont_check": "Se non lo selezioni, la nota sarà rimossa solamente dalla mappa delle relazioni.",
+        "also_delete_note": "Rimuove anche la nota"
+    },
+    "delete_notes": {
+        "ok": "OK",
+        "close": "Chiudi",
+        "delete_notes_preview": "Anteprima di eliminazione delle note",
+        "delete_all_clones_description": "Elimina anche tutti i cloni (può essere disfatto tramite i cambiamenti recenti)",
+        "erase_notes_description": "L'eliminazione normale (soft) marca le note come eliminate e potranno essere recuperate entro un certo lasso di tempo (dalla finestra dei cambiamenti recenti). Selezionando questa opzione le note si elimineranno immediatamente e non sarà possibile recuperarle.",
+        "erase_notes_warning": "Elimina le note in modo permanente (non potrà essere disfatto), compresi tutti i cloni. Ciò forzerà un nuovo caricamento dell'applicazione.",
+        "cancel": "Annulla",
+        "notes_to_be_deleted": "Le seguenti note saranno eliminate ({{- noteCount}})",
+        "no_note_to_delete": "Nessuna nota sarà eliminata (solo i cloni).",
+        "broken_relations_to_be_deleted": "Le seguenti relazioni saranno interrotte ed eliminate ({{- relationCount}})",
+        "deleted_relation_text": "La nota {{- note}} (da eliminare) è referenziata dalla relazione {{- relation}} originata da {{- source}}."
+    },
+    "info": {
+        "okButton": "OK",
+        "closeButton": "Chiudi"
+    },
+    "export": {
+        "close": "Chiudi",
+        "export_note_title": "Esporta la nota",
+        "export_status": "Stato dell'esportazione",
+        "export": "Esporta",
+        "choose_export_type": "Scegli prima il tipo di esportazione, per favore",
+        "export_in_progress": "Esportazione in corso: {{progressCount}}",
+        "export_finished_successfully": "Esportazione terminata con successo.",
+        "format_pdf": "PDF- allo scopo di stampa o esportazione.",
+        "export_type_subtree": "Questa nota e tutti i suoi discendenti",
+        "format_html": "HTML - raccomandato in quanto mantiene tutti i formati",
+        "format_html_zip": "HTML in archivio ZIP - questo è raccomandato in quanto conserva tutta la formattazione.",
+        "format_markdown": "MArkdown - questo conserva la maggior parte della formattazione."
+    },
+    "password_not_set": {
+        "body1": "Le note protette sono crittografate utilizzando una password utente, ma la password non è stata ancora impostata.",
+        "body2": "Per proteggere le note, fare clic su <a class=\"open-password-options-button\" href=\"javascript:\">qui</a> per aprire la finestra di dialogo Opzioni e impostare la password."
+    },
+    "protected_session_password": {
+        "close_label": "Chiudi"
+    },
+    "abstract_bulk_action": {
+        "remove_this_search_action": "Rimuovi questa azione di ricerca"
+    },
+    "etapi": {
+        "new_token_title": "Nuovo token ETAPI",
+        "new_token_message": "Inserire il nuovo nome del token"
+    },
+    "electron_integration": {
+        "zoom-factor": "Fattore di ingrandimento",
+        "desktop-application": "Applicazione Desktop"
+    },
+    "note_autocomplete": {
+        "search-for": "Cerca \"{{term}}\"",
+        "create-note": "Crea e collega la nota figlia \"{{term}}\"",
+        "insert-external-link": "Inserisci il collegamento esterno a \"{{term}}\"",
+        "clear-text-field": "Pulisci il campo di testo",
+        "show-recent-notes": "Mostra le note recenti",
+        "full-text-search": "Ricerca full text"
+    },
+    "note_tooltip": {
+        "note-has-been-deleted": "La nota è stata eliminata.",
+        "quick-edit": "Modifica veloce"
+    },
+    "geo-map": {
+        "create-child-note-title": "Crea una nota figlia e aggiungila alla mappa",
+        "create-child-note-instruction": "Clicca sulla mappa per creare una nuova nota qui o premi Escape per uscire.",
+        "unable-to-load-map": "Impossibile caricare la mappa."
+    },
+    "geo-map-context": {
+        "open-location": "Apri la posizione",
+        "remove-from-map": "Rimuovi dalla mappa",
+        "add-note": "Aggiungi un marcatore in questa posizione"
+    },
+    "debug": {
+        "debug": "Debug"
+    },
+    "database_anonymization": {
+        "light_anonymization": "Anonimizzazione parziale",
+        "title": "Anonimizzazione del Database",
+        "full_anonymization": "Anonimizzazione completa",
+        "full_anonymization_description": "Questa azione creerà una nuova copia del database e lo anonimizzerà (rimuove tutti i contenuti delle note, lasciando solo la struttura e qualche metadato non sensibile) per condividerlo online allo scopo di debugging, senza paura di far trapelare i tuoi dati personali.",
+        "save_fully_anonymized_database": "Salva il database completamente anonimizzato",
+        "light_anonymization_description": "Questa azione creerà una nuova copia del database e lo anonimizzerà in parzialmente — in particolare, solo il contenuto delle note sarà rimosso, ma i titoli e gli attributi rimarranno. Inoltre, note con script personalizzati JS di frontend/backend e widget personalizzati lasciando rimarranno. Ciò mette a disposizione più contesto per il debug dei problemi.",
+        "choose_anonymization": "Puoi decidere da solo se fornire un database completamente o parzialmente anonimizzato. Anche un database completamente anonimizzato è molto utile, sebbene in alcuni casi i database parzialmente anonimizzati possono accelerare il processo di identificazione dei bug e la loro correzione.",
+        "no_anonymized_database_yet": "Nessun database ancora anonimizzato.",
+        "save_lightly_anonymized_database": "Salva il database parzialmente anonimizzato",
+        "successfully_created_fully_anonymized_database": "Database completamente anonimizzato creato in {{anonymizedFilePath}}",
+        "successfully_created_lightly_anonymized_database": "Database parzialmente anonimizzato creato in {{anonymizedFilePath}}"
+    },
+    "cpu_arch_warning": {
+        "title": "Per favore scarica la versione ARM64",
+        "continue_anyway": "Continua Comunque",
+        "dont_show_again": "Non mostrare più questo avviso",
+        "download_link": "Scarica la Versione Nativa"
+    },
+    "editorfeatures": {
+        "title": "Caratteristiche",
+        "emoji_completion_enabled": "Abilita il completamento automatico delle Emoji",
+        "note_completion_enabled": "Abilita il completamento automatico delle note"
+    },
+    "table_view": {
+        "new-row": "Nuova riga",
+        "new-column": "Nuova colonna",
+        "sort-column-by": "Ordina per \"{{title}}\"",
+        "sort-column-ascending": "Ascendente",
+        "sort-column-descending": "Discendente",
+        "sort-column-clear": "Cancella l'ordinamento",
+        "hide-column": "Nascondi la colonna \"{{title}}\"",
+        "show-hide-columns": "Mostra/nascondi le colonne",
+        "row-insert-above": "Inserisci una riga sopra",
+        "row-insert-below": "Inserisci una riga sotto"
+    },
+    "abstract_search_option": {
+        "remove_this_search_option": "Rimuovi questa opzione di ricerca",
+        "failed_rendering": "Opzione di ricerca di rendering non riuscita: {{dto}} con errore: {{error}} {{stack}}"
+    },
+    "ancestor": {
+        "label": "Antenato"
+    },
+    "add_label": {
+        "add_label": "Aggiungi etichetta",
+        "label_name_placeholder": "nome dell'etichetta",
+        "new_value_placeholder": "nuovo valore",
+        "to_value": "al valore"
+    },
+    "update_label_value": {
+        "to_value": "al valore",
+        "label_name_placeholder": "nome dell'etichetta"
+    },
+    "delete_label": {
+        "delete_label": "Elimina etichetta",
+        "label_name_placeholder": "nome dell'etichetta",
+        "label_name_title": "Sono ammessi i caratteri alfanumerici, il carattere di sottolineato e i due punti."
+    },
+    "tree-context-menu": {
+        "move-to": "Muovi in...",
+        "cut": "Taglia"
+    },
+    "electron_context_menu": {
+        "cut": "Taglia",
+        "copy": "Copia",
+        "paste": "Incolla",
+        "copy-link": "Copia collegamento",
+        "paste-as-plain-text": "Incolla come testo semplice"
+    },
+    "editing": {
+        "editor_type": {
+            "multiline-toolbar": "Mostra la barra degli strumenti su più linee se non entra."
+        }
+    },
+    "edit_button": {
+        "edit_this_note": "Modifica questa nota"
+    },
+    "shortcuts": {
+        "shortcuts": "Scorciatoie"
+    },
+    "shared_switch": {
+        "toggle-on-title": "Condividi la nota",
+        "toggle-off-title": "Non condividere la nota"
+    },
+    "search_string": {
+        "search_prefix": "Cerca:"
+    },
+    "attachment_detail": {
+        "open_help_page": "Apri la pagina di aiuto sugli allegati"
+    },
+    "search_definition": {
+        "ancestor": "antenato",
+        "debug": "debug",
+        "action": "azione",
+        "add_search_option": "Aggiungi un opzione di ricerca:",
+        "search_string": "cerca la stringa",
+        "limit": "limite"
+    },
+    "modal": {
+        "close": "Chiudi"
+    },
+    "board_view": {
+        "insert-below": "Inserisci sotto",
+        "delete-column": "Elimina la colonna",
+        "delete-column-confirmation": "Sei sicuro di vole eliminare questa colonna? Il corrispondente attributo sarà eliminato anche nelle note sotto questa colonna."
+    },
+    "backup": {
+        "enable_weekly_backup": "Abilita le archiviazioni settimanali",
+        "enable_monthly_backup": "Abilita le archiviazioni mensili",
+        "backup_recommendation": "Si raccomanda di mantenere attive le archiviazioni, sebbene ciò possa rendere l'avvio dell'applicazione lento con database grandi e/o dispositivi di archiviazione lenti.",
+        "backup_now": "Archivia adesso",
+        "backup_database_now": "Archivia il database adesso",
+        "existing_backups": "Backup esistenti",
+        "date-and-time": "Data e ora",
+        "path": "Percorso",
+        "database_backed_up_to": "Il database è stato archiviato in {{backupFilePath}}",
+        "enable_daily_backup": "Abilita le archiviazioni giornaliere",
+        "no_backup_yet": "Ancora nessuna archiviazione"
+    },
+    "backend_log": {
+        "refresh": "Aggiorna"
+    },
+    "consistency_checks": {
+        "find_and_fix_button": "Trova e correggi i problemi di coerenza",
+        "finding_and_fixing_message": "In cerca e correzione dei problemi di coerenza...",
+        "issues_fixed_message": "Qualsiasi problema di coerenza che possa essere stato trovato ora è corretto."
+    },
+    "database_integrity_check": {
+        "check_button": "Controllo dell'integrità del database",
+        "checking_integrity": "Controllo dell'integrità del database in corso...",
+        "title": "Controllo di Integrità del database",
+        "description": "Controllerà che il database non sia corrotto a livello SQLite. Può durare un po' di tempo, a seconda della grandezza del DB.",
+        "integrity_check_failed": "Controllo di integrità fallito: {{results}}"
+    },
+    "sync": {
+        "title": "Sincronizza",
+        "force_full_sync_button": "Forza una sincronizzazione completa",
+        "failed": "Sincronizzazione fallita: {{message}}"
+    },
+    "sync_2": {
+        "config_title": "Configurazione per la Sincronizzazione",
+        "proxy_label": "Server Proxy per la sincronizzazione (opzionale)",
+        "test_title": "Test di sincronizzazione",
+        "timeout": "Timeout per la sincronizzazione",
+        "timeout_unit": "millisecondi",
+        "save": "Salva",
+        "help": "Aiuto"
+    },
+    "search_engine": {
+        "save_button": "Salva"
+    },
+    "sql_table_schemas": {
+        "tables": "Tabelle"
+    },
+    "tab_row": {
+        "close_tab": "Chiudi la scheda",
+        "add_new_tab": "Aggiungi una nuova scheda",
+        "close": "Chiudi",
+        "close_other_tabs": "Chiudi le altre schede",
+        "close_right_tabs": "Chiudi le schede a destra",
+        "close_all_tabs": "Chiudi tutte le schede",
+        "reopen_last_tab": "Riapri l'ultima scheda chiusa",
+        "move_tab_to_new_window": "Sposta questa scheda in una nuova finestra",
+        "copy_tab_to_new_window": "Copia questa scheda in una nuova finestra",
+        "new_tab": "Nuova scheda"
+    },
+    "toc": {
+        "table_of_contents": "Sommario"
+    },
+    "table_of_contents": {
+        "title": "Sommario"
+    },
+    "tray": {
+        "title": "Vassoio di Sistema",
+        "enable_tray": "Abilita il vassoio (Trilium necessita di essere riavviato affinché la modifica abbia effetto)"
+    },
+    "heading_style": {
+        "title": "Stile dell'Intestazione",
+        "plain": "Normale",
+        "underline": "Sottolineato",
+        "markdown": "Stile Markdown"
+    },
+    "highlights_list": {
+        "title": "Punti salienti"
+    },
+    "highlights_list_2": {
+        "title": "Punti salienti",
+        "options": "Opzioni"
+    },
+    "quick-search": {
+        "placeholder": "Ricerca rapida",
+        "searching": "Ricerca in corso..."
+    }
+}

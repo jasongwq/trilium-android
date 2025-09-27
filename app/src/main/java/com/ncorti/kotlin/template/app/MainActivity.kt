@@ -12,14 +12,14 @@ import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import android.graphics.Color
-
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.os.Build
 
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
-    
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout 
     // 默认加载的网页地址
     private val defaultUrl = "http://127.0.0.1:8080"
 
@@ -37,20 +37,23 @@ class MainActivity : AppCompatActivity() {
 
         
         // App启动时自动启动NodeService
-        startNodeService()
+//        startNodeService()
 
         // 设置导航栏透明（配合沉浸式）
         window.navigationBarColor = Color.TRANSPARENT
         window.statusBarColor = Color.TRANSPARENT
 
         setContentView(R.layout.activity_main)
-        
-        // 初始化控件
         webView = findViewById(R.id.webView)
         
         // 配置WebView
         setupWebView()
-        
+       swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
+         // 配置WebView
+         setupWebView()
+         // 配置下拉刷新
+         setupSwipeRefresh()
+ 
         // 加载网页
         if (savedInstanceState == null) {
             webView.loadUrl(defaultUrl)
@@ -72,6 +75,21 @@ class MainActivity : AppCompatActivity() {
             startService(serviceIntent)
         }
     }
+    private fun setupSwipeRefresh() {
+         // 设置刷新时的颜色循环（可选）
+         swipeRefreshLayout.setColorSchemeResources(
+             android.R.color.holo_blue_light,
+             android.R.color.holo_green_light,
+             android.R.color.holo_orange_light
+         )
+         // 设置下拉刷新的触发距离（可选）
+         swipeRefreshLayout.setDistanceToTriggerSync(200)
+         // 下拉刷新监听器：触发时重新加载网页
+         swipeRefreshLayout.setOnRefreshListener {
+             webView.reload() // 重新加载当前网页
+         }
+     }
+
     /**
      * 配置WebView的各种设置和客户端
      */
@@ -113,6 +131,7 @@ class MainActivity : AppCompatActivity() {
             // 页面加载完成
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                swipeRefreshLayout.isRefreshing = false // 停止刷新动画
             }
         }
         

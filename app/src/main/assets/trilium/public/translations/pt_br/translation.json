@@ -1,0 +1,1206 @@
+{
+  "code_block": {
+    "theme_none": "Sem destaque de sintaxe",
+    "theme_group_light": "Temas claros",
+    "theme_group_dark": "Temas escuros"
+  },
+  "about": {
+    "title": "Sobre o Trilium Notes",
+    "homepage": "Página inicial:",
+    "app_version": "Versão do App:",
+    "db_version": "Versão do db:",
+    "sync_version": "Versão de sincronização:",
+    "build_date": "Data de compilação:",
+    "build_revision": "Revisão da compilação:",
+    "data_directory": "Diretório de dados:"
+  },
+  "toast": {
+    "critical-error": {
+      "title": "Erro crítico",
+      "message": "Ocorreu um erro crítico que impede a inicialização do aplicativo cliente:\n\n{{message}}\n\nIsso provavelmente foi causado por um script que falhou de maneira inesperada. Tente iniciar o aplicativo no modo seguro e resolva o problema."
+    },
+    "widget-error": {
+      "title": "Falha ao inicializar um widget",
+      "message-custom": "O widget personalizado da nota com ID \"{{id}}\", intitulada \"{{title}}\", não pôde ser inicializado devido a:\n\n{{message}}",
+      "message-unknown": "Widget desconhecido não pôde ser inicializado devido a:\n\n{{message}}"
+    },
+    "bundle-error": {
+      "title": "Falha para carregar o script customizado",
+      "message": "O script da nota com ID \"{{id}}\", intitulada \"{{title}}\", não pôde ser executado devido a:\n\n{{message}}"
+    }
+  },
+  "add_link": {
+    "add_link": "Adicionar link",
+    "help_on_links": "Ajuda sobre links",
+    "note": "Nota",
+    "search_note": "pesquisar nota pelo nome",
+    "link_title_mirrors": "o título do link reflete o título atual da nota",
+    "link_title_arbitrary": "o título do link pode ser alterado livremente",
+    "link_title": "Titulo do link",
+    "button_add_link": "Adicionar link"
+  },
+  "branch_prefix": {
+    "prefix": "Prefixo: ",
+    "save": "Salvar",
+    "edit_branch_prefix": "Editar Prefixo do Branch",
+    "help_on_tree_prefix": "Ajuda sobre o prefixo da árvore de notas",
+    "branch_prefix_saved": "O prefixo de ramificação foi salvo."
+  },
+  "bulk_actions": {
+    "bulk_actions": "Ações em massa",
+    "affected_notes": "Notas Afetadas",
+    "include_descendants": "Incluir notas filhas das notas selecionadas",
+    "available_actions": "Ações disponíveis",
+    "chosen_actions": "Ações selecionadas",
+    "execute_bulk_actions": "Executar ações em massa",
+    "bulk_actions_executed": "As ações em massa foram concluídas com sucesso.",
+    "none_yet": "Nenhuma até agora... adicione uma ação clicando em uma das disponíveis acima.",
+    "labels": "Etiquetas",
+    "relations": "Relações",
+    "notes": "Notas",
+    "other": "Outros"
+  },
+  "clone_to": {
+    "clone_notes_to": "Clonar notas para...",
+    "help_on_links": "Ajuda sobre links",
+    "notes_to_clone": "Notas para clonar",
+    "search_for_note_by_its_name": "pesquisar nota pelo nome",
+    "cloned_note_prefix_title": "A nota clonada aparecerá na árvore de notas com o prefixo fornecido",
+    "prefix_optional": "Prefixo (opcional)",
+    "no_path_to_clone_to": "Nenhum caminho para clonar.",
+    "target_parent_note": "Nota pai-alvo",
+    "clone_to_selected_note": "Clonar para a nota selecionada",
+    "note_cloned": "A nota \"{{clonedTitle}}\" foi clonada para \"{{targetTitle}}\""
+  },
+  "ai_llm": {
+    "n_notes_queued_0": "{{ count }} nota enfileirada para indexação",
+    "n_notes_queued_1": "{{ count }} notas enfileiradas para indexação",
+    "n_notes_queued_2": "{{ count }} notas enfileiradas para indexação",
+    "notes_indexed_0": "{{ count }} nota indexada",
+    "notes_indexed_1": "{{ count }} notas indexadas",
+    "notes_indexed_2": "{{ count }} notas indexadas",
+    "temperature": "Temperatura",
+    "retry_queued": "Nota enfileirada para nova tentativa",
+    "queued_notes": "Notas Enfileiradas",
+    "empty_key_warning": {
+      "voyage": "A chave de API da Voyage API está vazia. Por favor, digite uma chave de API válida.",
+      "ollama": "A chave de API da Ollama API está vazia. Por favor, digite uma chave de API válida.",
+      "anthropic": "A chave de API Anthropic está vazia. Por favor, digite uma chave de API válida.",
+      "openai": "A chave de API OpenAI está vazia. Por favor, digite uma chave de API válida."
+    },
+    "not_started": "Não iniciado",
+    "title": "Configurações de IA",
+    "processed_notes": "Notas Processadas",
+    "total_notes": "Total de Notas",
+    "progress": "Andamento",
+    "failed_notes": "Notas com Falha",
+    "last_processed": "Últimas Processadas",
+    "refresh_stats": "Atualizar Estatísticas",
+    "enable_ai_features": "Ativar recurso IA/LLM",
+    "enable_ai_description": "Ativar recursos IA como sumarização de notas, geração de conteúdo, e outras capacidades de LLM",
+    "openai_tab": "OpenAI",
+    "anthropic_tab": "Anthropic",
+    "voyage_tab": "Voyage AI",
+    "enable_ai": "Ativar recursos IA/LLM",
+    "provider_configuration": "Configuração de Provedor de IA",
+    "system_prompt": "Prompt de Sistema",
+    "system_prompt_description": "Prompt padrão de sistema usado para todas as interações de IA",
+    "openai_configuration": "Configuração OpenAI",
+    "openai_settings": "Opções OpenAI",
+    "api_key": "Chave de API",
+    "url": "URL Base",
+    "model": "Modelo",
+    "openai_api_key_description": "Sua API Key da OpenAI para acessar os serviços de IA",
+    "anthropic_api_key_description": "Sua API Key da Anthropic para acessar os modelos Claude",
+    "default_model": "Modelo Padrão",
+    "openai_model_description": "Exemplos: gpt-4o, gpt-4-turbo, gpt-3.5-turbo",
+    "base_url": "URL Base",
+    "openai_url_description": "Padrão: https://api.openai.com/v1",
+    "anthropic_settings": "Configurações Anthropic",
+    "anthropic_url_description": "URL Base da API Anthropic (padrão: https://api.anthropic.com)",
+    "anthropic_model_description": "Modelos Claude da Anthropic para completar conversas",
+    "voyage_settings": "Configurações Voyage AI",
+    "retry": "Tentar novamente",
+    "retry_failed": "Falha ao enfileirar nota para nova tentativa",
+    "max_notes_per_llm_query": "Máximo de Notas por Consulta",
+    "max_notes_per_llm_query_description": "Número máximo de notas similares para incluir no contexto da IA",
+    "active_providers": "Provedores Ativos",
+    "disabled_providers": "Provedores Desativados",
+    "remove_provider": "Remover provedor da pesquisa",
+    "restore_provider": "Restaurar provedor na pesquisa",
+    "similarity_threshold": "Tolerância de Similaridade",
+    "similarity_threshold_description": "Pontuação máxima de similaridade (0-1) para notas a serem incluídas no contexto das consultas de LLM",
+    "reprocess_index": "Reconstruir Índice de Pesquisa",
+    "reprocessing_index": "Reconstruindo…",
+    "reprocess_index_started": "Otimiação do índice de pesquisa iniciado em plano de fundo",
+    "reprocess_index_error": "Erro ao reconstruir índice de pesquisa",
+    "index_rebuild_progress": "Andamento da Reconstrução do Índice",
+    "index_rebuilding": "Otimizando índice ({{percentage}}%)",
+    "index_rebuild_complete": "Otimização de índice finalizada",
+    "index_rebuild_status_error": "Erro ao verificar o estado da reconstrução do índice",
+    "never": "Nunca",
+    "processing": "Processando ({{percentage}}%)",
+    "incomplete": "Incompleto ({{percentage}}%)",
+    "complete": "Completo (100%)",
+    "refreshing": "Atualizando…",
+    "auto_refresh_notice": "Atualizando automaticamente a cada {{seconds}} segundos",
+    "note_queued_for_retry": "Nota enfileirada para nova tentativa",
+    "failed_to_retry_note": "Falha ao retentar nota",
+    "all_notes_queued_for_retry": "Todas as notas com falha enfileiradas para nova tentativa",
+    "failed_to_retry_all": "Falha ao retentar notas",
+    "ai_settings": "Configurações IA",
+    "api_key_tooltip": "Chave de API para acessar o serviço",
+    "agent": {
+      "processing": "Processando…",
+      "thinking": "Pensando…",
+      "loading": "Carregando…",
+      "generating": "Gerando…"
+    },
+    "name": "IA",
+    "openai": "OpenAI",
+    "use_enhanced_context": "Usar contexto aprimorado",
+    "enhanced_context_description": "Alimentar IA com mais contexto sobre a nota e suas notas relacionadas para melhores respostas",
+    "show_thinking": "Exibir pensamento",
+    "enter_message": "Digite sua mensagem…",
+    "error_contacting_provider": "Erro ao contatar o provedor de IA. Por favor, verifique suas configurações e sua conexão de internet.",
+    "error_generating_response": "Erro ao gerar resposta da IA",
+    "index_all_notes": "Indexar Todas as Notas",
+    "index_status": "Estado do Índice",
+    "indexed_notes": "Notas Indexadas",
+    "indexing_stopped": "Indexação interrompida",
+    "indexing_in_progress": "Indexação em andamento…",
+    "last_indexed": "Última Indexada",
+    "note_chat": "Conversa de Nota",
+    "sources": "Origens",
+    "start_indexing": "Iniciar Indexação",
+    "use_advanced_context": "Usar Contexto Avançado",
+    "ollama_no_url": "Ollama não está configurado. Por favor, digite uma URL válida.",
+    "chat": {
+      "root_note_title": "Conversas IA",
+      "root_note_content": "Esta nota contém suas conversas com IA salvas.",
+      "new_chat_title": "Nova Conversa",
+      "create_new_ai_chat": "Criar nova Conversa IA"
+    },
+    "create_new_ai_chat": "Criar nova Conversa IA",
+    "configuration_warnings": "Existem alguns problemas com sua configuração de IA. Por fovor, verifique suas configurações.",
+    "experimental_warning": "O recurso de LLM atualmente é experimental - você foi avisado.",
+    "selected_provider": "Provedor Selecionado",
+    "selected_provider_description": "Escolha o provedor de IA para conversas e recursos de completar",
+    "select_model": "Selecionar modelo…",
+    "select_provider": "Selecionar provedor…",
+    "ai_enabled": "Recursos de IA habilitados",
+    "ai_disabled": "Recursos de IA desabilitados",
+    "no_models_found_online": "Nenhum modelo encontrado. Por favor, verifique sua chave de API e as configurações.",
+    "no_models_found_ollama": "Nenhum modelo Ollama encontrado. Por favor, verifique se o Ollama está em execução.",
+    "error_fetching": "Erro ao obter modelos: {{error}}"
+  },
+  "confirm": {
+    "confirmation": "Confirmação",
+    "cancel": "Cancelar",
+    "ok": "OK",
+    "are_you_sure_remove_note": "Tem certeza de que deseja remover a nota '{{title}}' do mapa de relações? ",
+    "if_you_dont_check": "Se você não marcar isso, a nota será removida apenas do mapa de relações.",
+    "also_delete_note": "Também excluir a nota"
+  },
+  "delete_notes": {
+    "delete_notes_preview": "Excluir pré-visualização de notas",
+    "close": "Fechar",
+    "delete_all_clones_description": "Excluir também todos os clones (pode ser desfeito em alterações recentes)",
+    "erase_notes_description": "A exclusão normal (suave) apenas marca as notas como excluídas, permitindo que sejam recuperadas (no diálogo de alterações recentes) dentro de um período de tempo. Se esta opção for marcada, as notas serão apagadas imediatamente e não será possível restaurá-las.",
+    "erase_notes_warning": "Apagar notas permanentemente (não pode ser desfeito), incluindo todos os clones. Isso forçará o recarregamento do aplicativo.",
+    "notes_to_be_deleted": "As seguintes notas serão excluídas ({{notesCount}})",
+    "no_note_to_delete": "Nenhuma nota será excluída (apenas os clones).",
+    "broken_relations_to_be_deleted": "As seguintes relações serão quebradas e excluídas ({{ relationCount}})",
+    "cancel": "Cancelar",
+    "ok": "OK",
+    "deleted_relation_text": "A nota {{- note}} (a ser excluída) está referenciada pela relação {{- relation}} originada de {{- source}}."
+  },
+  "export": {
+    "export_note_title": "Exportar nota",
+    "close": "Fechar",
+    "export_type_subtree": "Esta nota e todos os seus descendentes",
+    "format_html": "HTML – recomendado, pois mantém toda a formatação",
+    "format_html_zip": "HTML em arquivo ZIP – recomendado, pois isso preserva toda a formatação.",
+    "format_markdown": "Markdown – isso preserva a maior parte da formatação.",
+    "format_opml": "OPML - formato de intercâmbio de outliners apenas para texto. Formatação, imagens e arquivos não estão incluídos.",
+    "opml_version_1": "OPML v1.0 – apenas texto simples",
+    "opml_version_2": "OPML v2.0 – permite também HTML",
+    "export_type_single": "Apenas esta nota, sem seus descendentes",
+    "export": "Exportar",
+    "choose_export_type": "Por favor, escolha primeiro o tipo de exportação",
+    "export_status": "Status da exportação",
+    "export_in_progress": "Exportação em andamento: {{progressCount}}",
+    "export_finished_successfully": "Exportação concluída com sucesso.",
+    "format_pdf": "PDF – para impressão ou compartilhamento."
+  },
+  "help": {
+    "noteNavigation": "Navegação de notas",
+    "goUpDown": "subir/descer na lista de notas",
+    "collapseExpand": "recolher/expandir nó",
+    "notSet": "não definido",
+    "goBackForwards": "voltar / avançar no histórico",
+    "showJumpToNoteDialog": "mostrar diálogo <a class=\"external\" href=\"https://triliumnext.github.io/Docs/Wiki/note-navigation.html#jump-to-note\">\"Ir para\"</a>",
+    "scrollToActiveNote": "rolar até a nota atual",
+    "jumpToParentNote": "ir para a nota pai",
+    "collapseWholeTree": "recolher toda a árvore de notas",
+    "collapseSubTree": "recolher subárvore",
+    "tabShortcuts": "Atalhos de abas",
+    "newTabNoteLink": "em um link de nota abre a nota em uma nova aba",
+    "newTabWithActivationNoteLink": "em um link de nota abre e ativa a nota em uma nova aba",
+    "onlyInDesktop": "Apenas na versão para desktop (compilação Electron)",
+    "openEmptyTab": "abrir aba vazia",
+    "closeActiveTab": "fechar aba ativa",
+    "activateNextTab": "ativar próxima aba",
+    "activatePreviousTab": "ativar aba anterior",
+    "creatingNotes": "Criando notas",
+    "createNoteAfter": "criar nova nota após a nota atual",
+    "createNoteInto": "criar nova subnota dentro da nota atual",
+    "editBranchPrefix": "editar <a class=\"external\" href=\"https://triliumnext.github.io/Docs/Wiki/tree-concepts.html#prefix\">prefixo</a> do clone da nota ativa",
+    "movingCloningNotes": "Movendo / clonando notas",
+    "moveNoteUpDown": "mover nota para cima/baixo na lista de notas",
+    "moveNoteUpHierarchy": "mover nota para cima na hierarquia",
+    "multiSelectNote": "selecionar múltiplas notas acima/abaixo",
+    "selectAllNotes": "selecionar todas as notas no nível atual",
+    "selectNote": "selecionar nota",
+    "copyNotes": "copiar nota ativa (ou seleção atual) para a área de transferência (usado para <a class=\"external\" href=\"https://triliumnext.github.io/Docs/Wiki/cloning-notes.html#cloning-notes\">clonar</a>)",
+    "cutNotes": "recortar nota atual (ou seleção atual) para a área de transferência (usado para mover notas)",
+    "pasteNotes": "colar nota(s) como subnota dentro da nota ativa (o que pode ser mover ou clonar dependendo se foi copiado ou recortado para a área de transferência)",
+    "deleteNotes": "excluir nota / subárvore",
+    "editingNotes": "Edição de notas",
+    "editNoteTitle": "no painel de árvore, a navegação mudará do painel de árvore para o título da nota. Pressionar Enter no título da nota mudará o foco para o editor de texto. <kbd>Ctrl+.</kbd> mudará o foco de volta do editor para o painel de árvore.",
+    "createEditLink": "criar / editar link externo",
+    "createInternalLink": "criar link interno",
+    "followLink": "seguir link sob o cursor",
+    "insertDateTime": "inserir data e hora atual na posição do cursor",
+    "jumpToTreePane": "ir para a árvore de notas e rolar até a nota ativa",
+    "markdownAutoformat": "Autoformatação estilo Markdown",
+    "headings": "<code>##</code>, <code>###</code>, <code>####</code> etc. seguidos de espaço para títulos",
+    "bulletList": "<code>*</code> ou <code>-</code> seguidos de espaço para lista com marcadores",
+    "numberedList": "<code>1.</code> ou <code>1)</code> seguidos de espaço para lista numerada",
+    "blockQuote": "comece uma linha com <code>></code> seguido de espaço para citação em bloco",
+    "troubleshooting": "Solução de problemas",
+    "reloadFrontend": "recarregar o frontend do Trilium",
+    "showDevTools": "mostrar ferramentas de desenvolvedor",
+    "showSQLConsole": "mostrar console SQL",
+    "other": "Outros",
+    "quickSearch": "focar no campo de pesquisa rápida",
+    "inPageSearch": "pesquisa na página",
+    "title": "Folha de Dicas"
+  },
+  "import": {
+    "importIntoNote": "Importar para a nota",
+    "chooseImportFile": "Escolher arquivo para importar",
+    "importDescription": "O conteúdo do(s) arquivo(s) selecionado(s) será importado como nota(s) filha(s) em",
+    "options": "Opções",
+    "safeImportTooltip": "Arquivos de exportação Trilium<code> .zip</code> podem conter scripts executáveis que podem apresentar comportamentos prejudiciais. A importação segura desativará a execução automática de todos os scripts importados. Desmarque “Importação segura” apenas se o arquivo de importação contiver scripts executáveis e você confiar totalmente no conteúdo do arquivo importado.",
+    "safeImport": "Importação segura",
+    "explodeArchivesTooltip": "Se esta opção estiver marcada, o Trilium irá ler arquivos <code>.zip</code>, <code>.enex</code> e <code>.opml</code> e criar notas a partir dos arquivos contidos nesses arquivos compactados. Se estiver desmarcada, o Trilium irá anexar os próprios arquivos compactados à nota.",
+    "explodeArchives": "Ler conteúdos de arquivos <code>.zip</code>, <code>.enex</code> e <code>.opml</code>.",
+    "shrinkImagesTooltip": "<p>Se você marcar esta opção, o Trilium tentará reduzir o tamanho das imagens importadas por meio de escala e otimização, o que pode afetar a qualidade visual das imagens. Se desmarcada, as imagens serão importadas sem alterações.</p><p>Isso não se aplica a importações de arquivos <code>.zip</code> com metadados, pois presume-se que esses arquivos já estejam otimizados.</p>",
+    "shrinkImages": "Reduzir imagens",
+    "textImportedAsText": "Importar arquivos HTML, Markdown e TXT como notas de texto caso não esteja claro pelos metadados",
+    "codeImportedAsCode": "Importar arquivos de código reconhecidos (por exemplo, <code>.json</code>) como notas de código caso não esteja claro pelos metadados",
+    "replaceUnderscoresWithSpaces": "Substituir sublinhados por espaços nos nomes das notas importadas",
+    "import": "Importar",
+    "failed": "Falha na importação: {{message}}.",
+    "html_import_tags": {
+      "title": "Tags de importação HTML",
+      "description": "Configurar quais tags HTML devem ser preservadas ao importar notas. As tags que não estiverem nesta lista serão removidas durante a importação. Algumas tags (como 'script') são sempre removidas por motivos de segurança.",
+      "placeholder": "Digite as tags HTML, uma por linha",
+      "reset_button": "Redefinir para lista padrão"
+    },
+    "import-status": "Status da importação",
+    "in-progress": "Importação em andamento: {{progress}}",
+    "successful": "Importação concluída com sucesso."
+  },
+  "include_note": {
+    "dialog_title": "Incluir nota",
+    "label_note": "Nota",
+    "placeholder_search": "pesquisar nota pelo nome",
+    "box_size_prompt": "Dimensão da caixa da nota incluída:",
+    "box_size_small": "pequeno (~ 10 linhas)",
+    "box_size_medium": "médio (~ 30 linhas)",
+    "box_size_full": "completo (a caixa exibe o texto completo)",
+    "button_include": "Incluir nota"
+  },
+  "info": {
+    "modalTitle": "Mensagem informativa",
+    "closeButton": "Fechar",
+    "okButton": "OK"
+  },
+  "jump_to_note": {
+    "search_placeholder": "Pesquise uma nota pelo nome ou digite > para comandos...",
+    "search_button": "Pesquisar em texto completo"
+  },
+  "markdown_import": {
+    "dialog_title": "Importar Markdown",
+    "modal_body_text": "Por motivos de segurança (sandbox do navegador), o JavaScript não pode acessar diretamente a área de transferência. Por favor, cole o conteúdo Markdown na área de texto abaixo e clique em Importar",
+    "import_button": "Importar",
+    "import_success": "O conteúdo Markdown foi importado para o documento."
+  },
+  "move_to": {
+    "dialog_title": "Mover notas para...",
+    "notes_to_move": "Notas para mover",
+    "target_parent_note": "Nota pai-alvo",
+    "search_placeholder": "pesquisar nota pelo nome",
+    "move_button": "Mover para a nota selecionada",
+    "error_no_path": "Nenhum caminho para mover.",
+    "move_success_message": "As notas selecionadas foram movidas para "
+  },
+  "note_type_chooser": {
+    "change_path_prompt": "Alterar onde criar a nova nota:",
+    "search_placeholder": "buscar caminho pelo nome (valor padrão se não for preenchido)",
+    "modal_title": "Escolher tipo de nota",
+    "modal_body": "Escolha o tipo/modelo da nova nota:",
+    "templates": "Modelos",
+    "builtin_templates": "Modelos Incorporados"
+  },
+  "password_not_set": {
+    "title": "A senha não está definida",
+    "body1": "Notas protegidas são criptografadas usando uma senha do usuário, mas a senha ainda não foi definida.",
+    "body2": "Para poder proteger notas, clique no botão abaixo para abrir a caixa de diálogo de Opções e definir sua senha.",
+    "go_to_password_options": "Ir para opções de Senha"
+  },
+  "prompt": {
+    "title": "Prompt",
+    "ok": "OK",
+    "defaultTitle": "Prompt"
+  },
+  "protected_session_password": {
+    "modal_title": "Sessão Protegida",
+    "help_title": "Ajuda sobre notas protegidas",
+    "close_label": "Fechar",
+    "form_label": "Para prosseguir com a ação solicitada, você precisa iniciar uma sessão protegida digitando a senha:",
+    "start_button": "Iniciar sessão protegida"
+  },
+  "recent_changes": {
+    "title": "Alterações recentes",
+    "erase_notes_button": "Remover permanentemente as notas excluídas agora",
+    "deleted_notes_message": "As notas excluídas foram removidas permanentemente.",
+    "no_changes_message": "Nenhuma alteração ainda...",
+    "undelete_link": "Restaurar",
+    "confirm_undelete": "Você deseja restaurar esta nota e suas subnotas?"
+  },
+  "revisions": {
+    "note_revisions": "Versões da nota",
+    "delete_all_revisions": "Excluir todas as versões desta nota",
+    "delete_all_button": "Excluir todas as versões",
+    "help_title": "Ajuda sobre as versões da nota",
+    "revision_last_edited": "Esta versão foi editada pela última vez em {{date}}",
+    "confirm_delete_all": "Você quer excluir todas as versões desta nota?",
+    "no_revisions": "Ainda não há versões para esta nota...",
+    "restore_button": "Recuperar",
+    "confirm_restore": "Deseja restaurar esta versão? Isso irá substituir o título e o conteúdo atuais da nota por esta versão.",
+    "delete_button": "Excluir",
+    "confirm_delete": "Deseja excluir esta versão?",
+    "revisions_deleted": "As versões da nota foram removidas.",
+    "revision_restored": "A versão da nota foi restaurada.",
+    "revision_deleted": "A versão da nota foi excluída.",
+    "snapshot_interval": "Intervalo de captura das versões da nota: {{seconds}}s.",
+    "maximum_revisions": "Limite de capturas das versões da nota: {{number}}.",
+    "settings": "Configurações de versões da nota",
+    "download_button": "Download",
+    "mime": "MIME: ",
+    "file_size": "Tamanho do arquivo:",
+    "preview": "Visualizar:",
+    "preview_not_available": "A visualização não está disponível para este tipo de nota."
+  },
+  "sort_child_notes": {
+    "sort_children_by": "Ordenar notas filhas por...",
+    "sorting_criteria": "Critérios de ordenação",
+    "title": "título",
+    "date_created": "data de criação",
+    "date_modified": "data de modificação",
+    "sorting_direction": "Direção de ordenação",
+    "ascending": "crescente",
+    "descending": "decrescente",
+    "folders": "Pastas",
+    "sort_folders_at_top": "colocar pastas no topo",
+    "natural_sort": "Ordenação Natural",
+    "sort_with_respect_to_different_character_sorting": "classificar de acordo com diferentes regras de ordenação de caracteres e colação em diferentes idiomas ou regiões.",
+    "natural_sort_language": "Linguagem da ordenação natural",
+    "the_language_code_for_natural_sort": "O código do idioma para ordenação natural, por exemplo, \"zh-CN\" para chinês.",
+    "sort": "Ordenar"
+  },
+  "upload_attachments": {
+    "upload_attachments_to_note": "Enviar anexos para a nota",
+    "choose_files": "Escolher arquivos",
+    "files_will_be_uploaded": "Os arquivos serão enviados como anexos para {{noteTitle}}",
+    "options": "Opções",
+    "shrink_images": "Reduzir imagens",
+    "upload": "Enviar",
+    "tooltip": "Se você marcar esta opção, o Trilium tentará reduzir as imagens enviadas redimensionando e otimizando, o que pode afetar a qualidade visual percebida. Se desmarcada, as imagens serão enviadas sem alterações."
+  },
+  "attribute_detail": {
+    "attr_detail_title": "Título Detalhado do Atributo",
+    "close_button_title": "Cancelar alterações e fechar",
+    "attr_is_owned_by": "O atributo pertence a",
+    "attr_name_title": "O nome do atributo pode ser composto apenas por caracteres alfanuméricos, dois-pontos e sublinhado",
+    "name": "Nome",
+    "value": "Valor",
+    "target_note_title": "Relação é uma conexão nomeada entre a nota de origem e a nota de destino.",
+    "target_note": "Nota de destino",
+    "promoted_title": "O atributo promovido é exibido de forma destacada na nota.",
+    "promoted": "Promovido",
+    "promoted_alias_title": "O nome a ser exibido na interface de atributos promovidos.",
+    "promoted_alias": "Alias",
+    "multiplicity_title": "Multiplicidade define quantos atributos com o mesmo nome podem ser criados — no máximo 1 ou mais de 1.",
+    "multiplicity": "Multiplicidade",
+    "single_value": "Valor único",
+    "multi_value": "Valor múltiplo",
+    "label_type_title": "O tipo do rótulo ajudará o Trilium a escolher a interface adequada para inserir o valor do rótulo.",
+    "label_type": "Tipo",
+    "text": "Texto",
+    "number": "Número",
+    "boolean": "Booleano",
+    "date": "Data",
+    "date_time": "Data e Hora",
+    "time": "Hora",
+    "url": "URL",
+    "precision_title": "Qual número de dígitos após o ponto decimal deve estar disponível na interface de configuração de valor.",
+    "precision": "Precisão",
+    "digits": "dígitos",
+    "inverse_relation_title": "Configuração opcional para definir a qual relação esta é oposta. Exemplo: Pai - Filho são relações inversas entre si.",
+    "inverse_relation": "Relação inversa",
+    "inheritable_title": "O atributo herdável será transmitido para todos os descendentes deste ramo.",
+    "inheritable": "Herdável",
+    "save_and_close": "Salvar e fechar <kbd>Ctrl+Enter</kbd>",
+    "delete": "Excluir",
+    "related_notes_title": "Outras notas com este rótulo",
+    "more_notes": "Mais notas",
+    "label": "Detalhe do rótulo",
+    "label_definition": "Detalhe da definição do rótulo",
+    "relation": "Detalhe da relação",
+    "relation_definition": "Detalhe da definição da relação",
+    "disable_versioning": "desativa a versão automática. Útil, por exemplo, para notas grandes, mas sem importância – como grandes bibliotecas JS usadas para scripts",
+    "calendar_root": "marca a nota que deve ser usada como raiz para notas diárias. Apenas uma deve ser marcada assim.",
+    "archived": "notas com este rótulo não serão exibidas por padrão nos resultados de busca (também nos diálogos Ir para, Adicionar link, etc).",
+    "exclude_from_export": "notas (junto com sua subárvore) não serão incluídas em nenhuma exportação de notas",
+    "run": "define em quais eventos o script deve ser executado. Os valores possíveis são:\n<ul>\n<li>frontendStartup - quando o frontend do Trilium inicia (ou é atualizado), mas não no celular.</li>\n<li>mobileStartup - quando o frontend do Trilium inicia (ou é atualizado), no celular.</li>\n<li>backendStartup - quando o backend do Trilium inicia</li>\n<li>hourly - executa uma vez por hora. Você pode usar o rótulo adicional <code>runAtHour</code> para especificar em qual hora.</li>\n<li>daily - executa uma vez por dia</li>\n</ul>",
+    "run_on_instance": "Define em qual instância do Trilium isso deve ser executado. Por padrão, todas as instâncias.",
+    "run_at_hour": "Em qual hora isso deve ser executado. Deve ser usado junto com <code>#run=hourly</code>. Pode ser definido várias vezes para executar mais de uma vez ao dia.",
+    "disable_inclusion": "scripts com este rótulo não serão incluídos na execução do script pai.",
+    "sorted": "mantém as notas filhas ordenadas alfabeticamente pelo título",
+    "sort_direction": "ASC (padrão) ou DESC",
+    "sort_folders_first": "Pastas (notas com filhos) devem ser ordenadas no topo",
+    "top": "mantenha a nota fornecida no topo em seu pai (aplica-se apenas a pais ordenados)",
+    "hide_promoted_attributes": "Ocultar atributos promovidos nesta nota",
+    "read_only": "o editor está em modo somente leitura. Funciona apenas para notas de texto e código.",
+    "auto_read_only_disabled": "notas de texto/código podem ser automaticamente configuradas para modo de leitura quando são muito grandes. Você pode desabilitar esse comportamento por nota adicionando este rótulo à nota",
+    "app_css": "marca notas CSS que são carregadas no aplicativo Trilium e, portanto, podem ser usadas para modificar a aparência do Trilium.",
+    "app_theme": "marca notas CSS que são temas completos do Trilium e, portanto, estão disponíveis nas opções do Trilium.",
+    "app_theme_base": "defina como \"next\", \"next-light\" ou \"next-dark\" para usar o tema TriliumNext correspondente (auto, claro ou escuro) como base para um tema personalizado, em vez do tema legado.",
+    "css_class": "o valor deste rótulo é então adicionado como classe CSS ao nó que representa a nota específica na árvore. Isso pode ser útil para temas avançados. Pode ser usado em notas de modelo.",
+    "icon_class": "o valor deste rótulo é adicionado como uma classe CSS ao ícone na árvore, o que pode ajudar a distinguir visualmente as notas na árvore. Um exemplo pode ser bx bx-home – os ícones são retirados do boxicons. Pode ser usado em notas de modelo.",
+    "page_size": "número de itens por página na listagem de notas",
+    "custom_request_handler": "veja <a href=\"javascript:\" data-help-page=\"custom-request-handler.html\">Manipulador de requisição personalizada</a>",
+    "custom_resource_provider": "veja <a href=\"javascript:\" data-help-page=\"custom-request-handler.html\">Manipulador de requisição personalizada</a>",
+    "widget": "marca esta nota como um widget personalizado que será adicionado à árvore de componentes do Trilium",
+    "workspace": "marca esta nota como um espaço de trabalho, o que permite fácil hoisting",
+    "workspace_icon_class": "define a classe CSS do ícone box que será usada na aba quando esta nota for hoisted",
+    "workspace_tab_background_color": "cor CSS usada na aba da nota quando esta nota é hoisted",
+    "workspace_calendar_root": "Define a raiz do calendário por espaço de trabalho",
+    "workspace_template": "Esta nota aparecerá na seleção de modelos disponíveis ao criar uma nova nota, mas apenas quando estiver destacada em um espaço de trabalho que contenha este modelo",
+    "search_home": "novas notas de pesquisa serão criadas como filhas desta nota",
+    "workspace_search_home": "novas notas de pesquisa serão criadas como filhas desta nota quando ela for destacada para algum ancestral desta nota de área de trabalho",
+    "inbox": "localização padrão da caixa de entrada para novas notas – quando você cria uma nota usando o botão \"nova nota\" na barra lateral, as notas serão criadas como notas filhas na nota marcada com o rótulo <code>#inbox</code>.",
+    "workspace_inbox": "local padrão da caixa de entrada para novas notas quando esta nota for destacada para algum ancestral desta nota de área de trabalho",
+    "sql_console_home": "localização padrão das notas do console SQL",
+    "bookmark_folder": "nota com este rótulo aparecerá nos favoritos como uma pasta (permitindo acesso aos seus filhos)",
+    "share_hidden_from_tree": "esta nota está oculta na árvore de navegação à esquerda, mas ainda pode ser acessada via sua URL",
+    "share_external_link": "a nota funcionará como um link para um site externo na árvore de compartilhamento",
+    "share_alias": "defina um alias por meio do qual a nota ficará disponível em https://your_trilium_host/share/[your_alias]",
+    "share_omit_default_css": "o CSS padrão da página de compartilhamento será omitido. Use quando você fizer alterações extensas de estilo.",
+    "share_root": "marca a nota que é servida na raiz de /share.",
+    "share_description": "defina o texto a ser adicionado à meta tag HTML \"description\"",
+    "share_raw": "a nota será servida em seu formato bruto, sem o wrapper HTML",
+    "share_disallow_robot_indexing": "impedirá que robôs indexem esta nota por meio do cabeçalho <code>X-Robots-Tag: noindex</code>",
+    "share_credentials": "exigir credenciais para acessar esta nota compartilhada. O valor deve estar no formato 'usuário:senha'. Não se esqueça de tornar esta configuração herdável para que seja aplicada às notas-filhas/imagens.",
+    "share_index": "notas com este rótulo irão listar todas as raízes das notas compartilhadas",
+    "display_relations": "nomes das relações separados por vírgula que devem ser exibidos. Todas as outras serão ocultadas.",
+    "hide_relations": "nomes das relações separados por vírgula que devem ser ocultados. Todas as outras serão exibidas.",
+    "title_template": "título padrão das notas criadas como filhas desta nota. O valor é avaliado como uma string JavaScript \n                        e pode ser enriquecido com conteúdo dinâmico usando as variáveis injetadas <code>now</code> e <code>parentNote</code>. Exemplos:\n                       \n                        <ul>\n                            <li><code>${parentNote.getLabelValue('authorName')}'s literary works</code></li>\n                            <li><code>Log for ${now.format('YYYY-MM-DD HH:mm:ss')}</code></li>\n                        </ul>\n                        \n                        Veja a <a href=\"https://triliumnext.github.io/Docs/Wiki/default-note-title.html\">wiki com detalhes</a>, a documentação da API para <a href=\"https://zadam.github.io/trilium/backend_api/Note.html\">parentNote</a> e para <a href=\"https://day.js.org/docs/en/display/format\">now</a> para mais informações.",
+    "template": "Esta nota aparecerá na seleção de modelos disponíveis ao criar uma nova nota",
+    "toc": "<code>#toc</code> ou <code>#toc=show</code> irá forçar a exibição do Sumário, <code>#toc=hide</code> irá forçar que ele fique oculto. Se o rótulo não existir, será considerado o ajuste global",
+    "color": "define a cor da nota na árvore de notas, links etc. Use qualquer valor de cor CSS válido, como 'red' ou #a13d5f",
+    "keyboard_shortcut": "Define um atalho de teclado que irá pular imediatamente para esta nota. Exemplo: 'ctrl+alt+e'. É necessário recarregar o frontend para que a alteração tenha efeito.",
+    "hide_highlight_widget": "Ocultar o widget da lista de destaques",
+    "keep_current_hoisting": "Abrir este link não alterará o destaque, mesmo que a nota não seja exibível na subárvore destacada atual.",
+    "execute_button": "Titulo do botão que executará a nota de código atual",
+    "exclude_from_note_map": "Notas com este rótulo ficarão ocultas no Mapa de Notas",
+    "new_notes_on_top": "Novas notas serão criadas no topo da nota raiz, não na parte inferior.",
+    "execute_description": "Descrição longa da nota de código atualmente exibida junto ao botão executar",
+    "print_page_size": "Quando exportando para PDF, altera o tamanho da página. Valores suportados: <code>A0</code>, <code>A1</code>, <code>A2</code>, <code>A3</code>, <code>A4</code>, <code>A5</code>, <code>A6</code>, <code>Legal</code>, <code>Letter</code>, <code>Tabloid</code>, <code>Ledger</code>.",
+    "and_more": "... e {{count}} mais.",
+    "other_notes_with_name": "Outras notas com {{attributeType}} igual a \"{{attributeName}}\"",
+    "color_type": "Cor",
+    "run_on_note_creation": "executa quando a nota é criada no backend. Use esta relação se quiser executar o script para todas as notas criadas em uma subárvore específica. Neste caso, crie-a na nota raiz da subárvore e torne-a herdável. Uma nova nota criada dentro da subárvore (qualquer profundidade) irá acionar o script.",
+    "run_on_child_note_creation": "executa quando uma nova nota é criada sob a nota onde esta relação está definida",
+    "run_on_note_title_change": "executa quando o título da nota é alterado (inclusive na criação de nota)",
+    "run_on_note_content_change": "executa quando o conteúdo da nota é alterado (inclusive na criação de nota).",
+    "run_on_note_change": "executa quando a nota é alterada (inclusive na criação de nota). Não incluí alterações no conteúdo",
+    "run_on_note_deletion": "executa quando a nota está sendo excluída",
+    "run_on_branch_creation": "executa quando uma ramificação é criada. Ramificação é uma ligação entre nota pai e nota filha e é criado, por exemplo, ao clonar ou mover uma nota.",
+    "run_on_branch_change": "executa quando uma remificação é atualizada.",
+    "run_on_attribute_creation": "executa quando um novo atributo é criado para a nota que define esta relação",
+    "run_on_attribute_change": " executa quando o atributo é alterado na nota que define esta relação. Também é disparado quando o atributo é excluído",
+    "widget_relation": "o destino desta relação será executado e renderizado como um widget na barra lateral"
+  },
+  "attachments_actions": {
+    "delete_attachment": "Excluir anexo",
+    "open_externally": "Abrir externamente",
+    "open_custom": "Abrir customizado",
+    "download": "Baixar",
+    "rename_attachment": "Renomear anexo",
+    "upload_new_revision": "Enviar nova revisão",
+    "copy_link_to_clipboard": "Copiar link para a área de transferência",
+    "convert_attachment_into_note": "Converter anexo para nota",
+    "upload_success": "Uma nova revisão de anexo foi enviada.",
+    "upload_failed": "O envio de uma nova revisão de anexo falhou.",
+    "delete_success": "O anexo '{{title}}' foi excluído.",
+    "convert_success": "O anexo '{{title}}' foi convertido para uma nota.",
+    "enter_new_name": "Por favor, digite o novo nome do anexo",
+    "delete_confirm": "Tem certeza que deseja excluir o anexo '{{title}}'?",
+    "convert_confirm": "Tem certeza que deseja converter o anexo '{{title}}' em uma nota separada?",
+    "open_externally_title": "O arquivo será aberto em uma aplicação externa e monitorado por alterações. Você então poderá enviar a versão modificada de volta para o Trilium.",
+    "open_custom_title": "O arquivo será aberto em uma aplicação externa e monitorado por alterações. Você então poderá enviar a versão modificada de volta para o Trilium.",
+    "open_externally_detail_page": "A abertura de anexo externamente só está disponível através da página de detalhes. Por favor, primeiro clique nos detalhes do anexo e repita a ação.",
+    "open_custom_client_only": "A abertura customizada de anexos só pode ser feita usando o cliente de desktop."
+  },
+  "attachment_detail": {
+    "you_can_also_open": ", você também pode abrir o(a) ",
+    "open_help_page": "Abrir página de ajuda nos anexos",
+    "list_of_all_attachments": "Lista de todos os anexos",
+    "attachment_deleted": "Este anexo foi excluído."
+  },
+  "ancestor": {
+    "depth_gt": "é maior que {{count}}",
+    "label": "Ancestral",
+    "placeholder": "buscar notas pelo nome",
+    "depth_label": "profundidade",
+    "depth_doesnt_matter": "não importa",
+    "depth_eq": "é exatamente {{count}}",
+    "direct_children": "filho direto",
+    "depth_lt": "é menor que {{count}}"
+  },
+  "add_relation": {
+    "add_relation": "Adicionar relação",
+    "allowed_characters": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "relation_name": "nome da relação",
+    "to": "para",
+    "target_note": "nota destino",
+    "create_relation_on_all_matched_notes": "Crie a relação informada em todas as notas correspondentes."
+  },
+  "delete_label": {
+    "label_name_placeholder": "nome da etiqueta",
+    "label_name_title": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "delete_label": "Excluir etiqueta"
+  },
+  "rename_label": {
+    "rename_label": "Renomear etiqueta",
+    "rename_label_from": "Renomear etiqueta de",
+    "old_name_placeholder": "nome antigo",
+    "to": "Para",
+    "new_name_placeholder": "novo nome",
+    "name_title": "Caracteres alfanuméricos, underscore e vírgula são permitidos."
+  },
+  "execute_script": {
+    "example_1": "Por exemplo para anexar um texto ao título de uma nota, use este pequeno script:",
+    "execute_script": "Executar script",
+    "help_text": "Você pode executar scripts simples nas notas correspondentes.",
+    "example_2": "Um exemplo mais complexo seria excluir todos os atributos das notas correspondentes:"
+  },
+  "attribute_editor": {
+    "help_text_body1": "Para adicionar uma etiqueta, digite por exemplo <code>#rock</code> ou se você também quer adicionar um valor então por exemplo <code>#year = 2020</code>",
+    "help_text_body2": "Para relação, digite <code>~author = @</code>, que deve ser exibido um autocompletar onde você pode encontrar a nota desejada.",
+    "help_text_body3": "Alternativamente, você pode adicionar etiqueta e relação usando o botão <code>+</code> no lado direito.",
+    "save_attributes": "Salvar atributos <enter>",
+    "add_a_new_attribute": "Adicionar um novo atributo",
+    "add_new_label": "Adicionar nova etiqueta <kbd data-command=\"addNewLabel\"></kbd>",
+    "add_new_relation": "Adicionar nova relação <kbd data-command=\"addNewRelation\"></kbd>",
+    "add_new_label_definition": "Adicionar nova definição de etiqueta",
+    "add_new_relation_definition": "Adicionar nova definição de relação",
+    "placeholder": "Digite as etiquetas e relações aqui"
+  },
+  "abstract_bulk_action": {
+    "remove_this_search_action": "Remover esta ação de busca"
+  },
+  "add_label": {
+    "add_label": "Adicionar etiqueta",
+    "label_name_placeholder": "nome da etiqueta",
+    "label_name_title": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "to_value": "para o valor",
+    "new_value_placeholder": "novo valor",
+    "help_text": "Em todas as notas correspondentes:",
+    "help_text_item1": "criar a etiqueta indicada se a nota ainda não tiver uma",
+    "help_text_item2": "ou altere o valor da etiqueta existente",
+    "help_text_note": "Você também pode chamar este método sem valor, neste caso a etiqueta será atribuída à nota sem valor."
+  },
+  "update_label_value": {
+    "update_label_value": "Atualizar valor da etiqueta",
+    "label_name_placeholder": "nome da etiqueta",
+    "label_name_title": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "new_value_placeholder": "novo valor",
+    "to_value": "para o valor",
+    "help_text": "Em todas as notas correspondentes, altera o valor da etiqueta existente.",
+    "help_text_note": "Você também pode chamar este método sem um valor, neste caso a etiqueta será à nota sem um valor."
+  },
+  "delete_relation": {
+    "allowed_characters": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "delete_relation": "Excluir relação",
+    "relation_name": "nome da relação"
+  },
+  "rename_relation": {
+    "allowed_characters": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "rename_relation": "Renomar relação",
+    "rename_relation_from": "Renomear relação de",
+    "old_name": "nome antigo",
+    "to": "Para",
+    "new_name": "novo nome"
+  },
+  "update_relation_target": {
+    "allowed_characters": "Caracteres alfanuméricos, underscore e vírgula são permitidos.",
+    "to": "para",
+    "target_note": "nota destino",
+    "on_all_matched_notes": "Em todas as notas correspondentes",
+    "change_target_note": "alterar nota destino da relação existente",
+    "update_relation_target": "Atualizar destino da relação",
+    "update_relation": "Atualizar relação",
+    "relation_name": "nome da relação"
+  },
+  "content_renderer": {
+    "open_externally": "Abrir externamente"
+  },
+  "modal": {
+    "close": "Fechar"
+  },
+  "api_log": {
+    "close": "Fechar"
+  },
+  "attachment_detail_2": {
+    "will_be_deleted_in": "Este anexo será excluído automaticamente em {{time}}",
+    "will_be_deleted_soon": "Este anexo será excluído automaticamente em breve",
+    "deletion_reason": ", porque o anexo não está associado ao conteúdo da nota. Para evitar a exclusão, adicione o anexo novamente ao conteúdo ou converta o anexo em uma nota.",
+    "role_and_size": "Regra: {{role}}, Tamanho: {{size}}",
+    "link_copied": "Link do anexo copiado para a área de transferência.",
+    "unrecognized_role": "Regra desconhecida de anexo '{{role}}'."
+  },
+  "bookmark_switch": {
+    "bookmark": "Favorito",
+    "bookmark_this_note": "Favoritar esta nota no painel da esquerda",
+    "remove_bookmark": "Remover favorito"
+  },
+  "editability_select": {
+    "auto": "Auto",
+    "read_only": "Somente leitura",
+    "always_editable": "Sempre Editável",
+    "note_is_editable": "A nota é editável se não for muito longa.",
+    "note_is_read_only": "A nota é somente leitura, mas pode ser editada com um clique no botão.",
+    "note_is_always_editable": "A nota é sempre editável, independentemente do seu tamanho."
+  },
+  "note-map": {
+    "button-link-map": "Mapa de Links",
+    "button-tree-map": "Mapa em Árvore"
+  },
+  "tree-context-menu": {
+    "open-in-a-new-tab": "Abrir em uma nova aba <kbd>Ctrl+Click</kbd>",
+    "open-in-a-new-split": "Abrir em um novo painel dividido",
+    "insert-note-after": "Inserir nota após",
+    "insert-child-note": "Inserir nota filha",
+    "delete": "Excluir",
+    "search-in-subtree": "Buscar na subárvore"
+  },
+  "command_palette": {
+    "search_subtree_title": "Buscar na Subárvore",
+    "search_subtree_description": "Buscar dentro da subárvore atual",
+    "search_history_title": "Exibir Histórico de Busca",
+    "search_history_description": "Visualizar buscas anteriores",
+    "configure_launch_bar_title": "Configurar Barra de Execução"
+  },
+  "delete_note": {
+    "delete_note": "Excluir nota",
+    "delete_matched_notes": "Excluir notas correspondentes",
+    "delete_matched_notes_description": "Isso irá excluir as notas correspondentes.",
+    "undelete_notes_instruction": "Depois da exclusão, é possível desfazer através da janela de Alterações Recentes.",
+    "erase_notes_instruction": "Para apagar notas permanentemente, você pode fazer isso depois da exclusão indo em Opções -> Outros e clicar no botão \"Apagar notas excluídas agora\"."
+  },
+  "delete_revisions": {
+    "delete_note_revisions": "Excluir revisões da nota",
+    "all_past_note_revisions": "Todas as revisões anteriores das notas correspondentes serão excluídas. A nota em si será perservada. Ou seja, o histórico da nota será removido."
+  },
+  "move_note": {
+    "move_note": "Mover nota",
+    "to": "para",
+    "target_parent_note": "nota pai destino",
+    "on_all_matched_notes": "Em todas as notas correspondentes"
+  },
+  "rename_note": {
+    "rename_note": "Renomear nota",
+    "rename_note_title_to": "Renomear título da nota para",
+    "new_note_title": "novo título da nota",
+    "click_help_icon": "Clique no ícone de ajuda a direita para ver todas as opções",
+    "example_note": "<code>Nota</code> - todas as notas correspondentes serão renomeadas para 'Nota'",
+    "example_new_title": "<code>NOVO: ${note.title}</code> - o título das notas correspondentes receberá o prefixo 'NOVO: '",
+    "example_date_prefix": "<code>${note.dateCreatedObj.format('MM-DD:')}: ${note.title}</code> - notas correspondentes receberão um prefixo com o mês-dia da data de criação da nota",
+    "api_docs": "Veja da documentação da API para <a href='https://zadam.github.io/trilium/backend_api/Note.html'>nota</a> e suas <a href='https://day.js.org/docs/en/display/format'>propriedades dateCreatedObj / utcDateCreatedObj</a> para detalhes."
+  },
+  "calendar": {
+    "mon": "Seg",
+    "tue": "Ter",
+    "wed": "Qua",
+    "thu": "Qui",
+    "fri": "Sex",
+    "sat": "Sáb",
+    "sun": "Dom",
+    "cannot_find_day_note": "Nota do dia não encontrada",
+    "cannot_find_week_note": "Nota semanal não encontrada",
+    "january": "Janeiro",
+    "febuary": "Fevereiro",
+    "march": "Março",
+    "april": "Abril",
+    "may": "Maio",
+    "june": "Junho",
+    "july": "Julho",
+    "august": "Agosto",
+    "september": "Setembro",
+    "october": "Outubro",
+    "november": "Novembro",
+    "december": "Dezembro"
+  },
+  "close_pane_button": {
+    "close_this_pane": "Fechar este painel"
+  },
+  "create_pane_button": {
+    "create_new_split": "Criar nova divisão"
+  },
+  "edit_button": {
+    "edit_this_note": "Editar esta nota"
+  },
+  "show_toc_widget_button": {
+    "show_toc": "Mostrar Tabela de Conteúdo"
+  },
+  "show_highlights_list_widget_button": {
+    "show_highlights_list": "Mostrar Lista de Destaques"
+  },
+  "global_menu": {
+    "menu": "Menu",
+    "options": "Opções",
+    "open_new_window": "Abrir Nova Janela",
+    "switch_to_mobile_version": "Alternar para Versão Mobile",
+    "switch_to_desktop_version": "Alternar para Versão Desktop",
+    "zoom": "Zoom",
+    "toggle_fullscreen": "Alternar Tela Cheia",
+    "zoom_out": "Reduzir",
+    "reset_zoom_level": "Redefinir Zoom",
+    "zoom_in": "Aumentar",
+    "configure_launchbar": "Configurar Barra de Lançamento",
+    "show_shared_notes_subtree": "Exibir Subárvore de Notas Compartilhadas",
+    "advanced": "Avançado",
+    "open_dev_tools": "Abrir Ferramentas de Desenvolvedor",
+    "open_sql_console": "Abrir Console SQL",
+    "open_sql_console_history": "Abrir Histórico de Console SQL",
+    "open_search_history": "Abrir Histórico de Busca",
+    "show_backend_log": "Abrir Log do Servidor",
+    "reload_frontend": "Recarregar Frontend",
+    "show_hidden_subtree": "Exibir Subárvore Oculta",
+    "show_help": "Exibir Ajuda",
+    "about": "Sobre o Trilium Notes",
+    "logout": "Sair",
+    "show-cheatsheet": "Exibir Cheatsheet",
+    "toggle-zen-mode": "Modo Zen",
+    "reload_hint": "Recarregar pode ajudar com alguns problemas visuais sem reiniciar toda a aplicação."
+  },
+  "zen_mode": {
+    "button_exit": "Sair do Modo Zen"
+  },
+  "sync_status": {
+    "in_progress": "Sincronização com o servidor em andamento.",
+    "unknown": "<p>O estado da sincronização será conhecido assim que a próxima tentativa começar.</p><p>Clique para iniciar a sincronização agora.</p>",
+    "connected_with_changes": "<p>Conectado ao servidor de sincronização.<br>Existem algumas alterações esperando para serem sincronizadas.</p><p>Clique para sincronizar.</p>",
+    "connected_no_changes": "<p>Conectado ao servidor de sincronização.<br>Todas as alterações já foram sincronizadas.</p><p>Clique para sincronizar.</p>",
+    "disconnected_with_changes": "<p>A conexão ao servidor de sincronização falhou.<br>Existem algumas alterações esperando para serem sincronizadas.</p><p>Clique para sincronizar.</p>",
+    "disconnected_no_changes": "<p>A conexão ao servidor de sincronização falhou.<br>Todas as alterações já foram sincronizadas.</p><p>Clique para sincronizar.</p>"
+  },
+  "left_pane_toggle": {
+    "show_panel": "Exibir painel",
+    "hide_panel": "Esconder painel"
+  },
+  "move_pane_button": {
+    "move_left": "Mover para a esquerda",
+    "move_right": "Mover para a direita"
+  },
+  "note_actions": {
+    "convert_into_attachment": "Converter para anexo",
+    "re_render_note": "Renderizar nota novamente",
+    "search_in_note": "Buscar na nota",
+    "note_source": "Código Fonte da nota",
+    "note_attachments": "Anexos da nota",
+    "open_note_externally": "Abrir nota externamente",
+    "open_note_custom": "Abrir nota de forma customizada",
+    "import_files": "Importar arquivos",
+    "export_note": "Exportar nota",
+    "delete_note": "Excluir nota",
+    "print_note": "Imprimir nota",
+    "save_revision": "Salvar revisão",
+    "convert_into_attachment_failed": "A conversão da nota '{{title}}' falhou.",
+    "convert_into_attachment_successful": "A nota '{{title}}' foi convertida para anexo.",
+    "print_pdf": "Exportar como PDF…",
+    "open_note_externally_title": "O arquivo será aberto em uma aplicação externa e monitorado por alterações. Você então poderá enviar a versão modificada de volta para o Trilium.",
+    "convert_into_attachment_prompt": "Você tem certeza que quer converter a nota '{{title}}' em um anexo da nota pai?"
+  },
+  "protected_session_status": {
+    "inactive": "Clique para entrar na sessão protegida",
+    "active": "Sessão protegida está ativada. Clique para deixar a sessão protegida."
+  },
+  "revisions_button": {
+    "note_revisions": "Revisões da Nota"
+  },
+  "update_available": {
+    "update_available": "Atualização disponível"
+  },
+  "code_buttons": {
+    "execute_button_title": "Executar script",
+    "trilium_api_docs_button_title": "Abrir documentação da Trilium API",
+    "save_to_note_button_title": "Salvar para uma nota",
+    "opening_api_docs_message": "Abrindo documentação da API…",
+    "sql_console_saved_message": "Nota do Console SQL foi salva no caminho {{note_path}}"
+  },
+  "hide_floating_buttons_button": {
+    "button_title": "Esconder botões"
+  },
+  "show_floating_buttons_button": {
+    "button_title": "Exibir botões"
+  },
+  "svg_export_button": {
+    "button_title": "Exportar diagrama como SVG"
+  },
+  "relation_map_buttons": {
+    "zoom_in_title": "Aumentar",
+    "zoom_out_title": "Reduzir",
+    "create_child_note_title": "Criar nova nota filha e adicione neste mapa de relação"
+  },
+  "zpetne_odkazy": {
+    "backlink": "{{count}} Links Reversos",
+    "backlinks": "{{count}} Links Reversos",
+    "relation": "relação"
+  },
+  "mobile_detail_menu": {
+    "insert_child_note": "Inserir nota filha",
+    "delete_this_note": "Excluir essa nota",
+    "error_unrecognized_command": "Comando não reconhecido {{command}}"
+  },
+  "note_icon": {
+    "change_note_icon": "Alterar ícone da nota",
+    "category": "Categoria:",
+    "search": "Busca:",
+    "reset-default": "Redefinir para o ícone padrão"
+  },
+  "basic_properties": {
+    "note_type": "Tipo da nota",
+    "editable": "Editável",
+    "basic_properties": "Propriedades Básicas",
+    "language": "Idioma"
+  },
+  "book_properties": {
+    "view_type": "Tipo de visualização",
+    "grid": "Grade",
+    "list": "Lista",
+    "collapse_all_notes": "Recolher todas as notas",
+    "expand_all_children": "Expandir todos os filhos",
+    "collapse": "Recolher",
+    "expand": "Expandir",
+    "book_properties": "Propriedades da Coleção",
+    "invalid_view_type": "Tipo de visualização inválido '{{type}}'",
+    "calendar": "Calendário",
+    "table": "Tabela",
+    "geo-map": "Geo Map",
+    "board": "Quadro"
+  },
+  "edited_notes": {
+    "no_edited_notes_found": "Ainda não há nenhuma nota editada neste dia…",
+    "title": "Notas Editadas",
+    "deleted": "(excluído)"
+  },
+  "file_properties": {
+    "note_id": "ID da Nota",
+    "original_file_name": "Nome original do arquivo",
+    "file_type": "Tipo do arquivo",
+    "file_size": "Tamanho do arquivo",
+    "download": "Baixar",
+    "open": "Abrir",
+    "upload_new_revision": "Enviar nova revisão",
+    "upload_success": "Uma nova revisão de arquivo foi enviada.",
+    "upload_failed": "O envio de uma nova revisão de arquivo falhou.",
+    "title": "Arquivo"
+  },
+  "image_properties": {
+    "original_file_name": "Nome original do arquivo",
+    "file_type": "Tipo do arquivo",
+    "file_size": "Tamanho do arquivo",
+    "download": "Baixar",
+    "open": "Abrir",
+    "copy_reference_to_clipboard": "Copiar referência para a área de transferência",
+    "upload_new_revision": "Enviar nova revisão",
+    "upload_success": "Uma nova revisão de imagem foi enviado.",
+    "upload_failed": "O envio de uma nova revisão de imagem falhou: {{message}}",
+    "title": "Imagem"
+  },
+  "inherited_attribute_list": {
+    "title": "Atributos Herdados",
+    "no_inherited_attributes": "Nenhum atributo herdado."
+  },
+  "note_info_widget": {
+    "note_id": "ID da Nota",
+    "created": "Criado",
+    "modified": "Editado",
+    "type": "Tipo",
+    "note_size": "Tamanho da nota",
+    "calculate": "calcular",
+    "title": "Informações da nota",
+    "subtree_size": "(tamanho da subárvore: {{size}} em {{count}} notas)"
+  },
+  "note_map": {
+    "open_full": "Expandir completamente",
+    "collapse": "Recolher para tamanho normal",
+    "title": "Mapa de Notas",
+    "fix-nodes": "Fixar nós",
+    "link-distance": "Distância do Link"
+  },
+  "note_paths": {
+    "title": "Caminho das Notas",
+    "clone_button": "Clonar nota para novo local…",
+    "intro_placed": "Esta nova está localizada nos caminhos:",
+    "intro_not_placed": "Esta nota ainda não está em nenhuma árvore de notas.",
+    "archived": "Arquivado",
+    "search": "Pesquisar"
+  },
+  "note_properties": {
+    "this_note_was_originally_taken_from": "Esta nota foi originalmente obtida de:",
+    "info": "Informações"
+  },
+  "promoted_attributes": {
+    "promoted_attributes": "Atributos Promovidos",
+    "unset-field-placeholder": "não atribuído",
+    "open_external_link": "Abrir link externo",
+    "unknown_label_type": "Tipo de etiqueta desconhecido '{{type}}'",
+    "unknown_attribute_type": "Tipo de atributo desconhecido '{{type}}'",
+    "add_new_attribute": "Adicionar novo atributo",
+    "remove_this_attribute": "Remover este atributo",
+    "remove_color": "Remover a etiqueta de cor"
+  },
+  "script_executor": {
+    "query": "Consulta",
+    "script": "Script",
+    "execute_query": "Executar Consulta",
+    "execute_script": "Executar Script"
+  },
+  "search_definition": {
+    "add_search_option": "Adicionar opção de pesquisa:",
+    "search_string": "pesquisa de texto",
+    "search_script": "pesquisa de script",
+    "ancestor": "ancestral",
+    "fast_search": "pesquisa rápida",
+    "include_archived": "incluir arquivados",
+    "order_by": "ordenar por",
+    "limit": "limite",
+    "limit_description": "Limitar número de resultados",
+    "debug": "depurar",
+    "action": "ação",
+    "search_button": "Pesquisar <kbd>enter</kbd>",
+    "search_execute": "Pesquisar & Executar ações",
+    "save_to_note": "Salvar para nota",
+    "search_parameters": "Parâmetros de Pesquisa",
+    "unknown_search_option": "Opção de pesquisa desconhecida {{searchOptionName}}",
+    "actions_executed": "As ações foram executadas.",
+    "search_note_saved": "Nota de pesquisa foi salva em {{- notePathTitle}}"
+  },
+  "similar_notes": {
+    "title": "Notas Similares",
+    "no_similar_notes_found": "Nenhum nota similar encontrada."
+  },
+  "abstract_search_option": {
+    "remove_this_search_option": "Remover esta opção de pesquisa",
+    "failed_rendering": "A renderização da opção de busca falhou: {{dto}} com o erro: {{error}} {{stack}}"
+  },
+  "debug": {
+    "debug": "Depurar"
+  },
+  "fast_search": {
+    "fast_search": "Pesquisa rápida"
+  },
+  "include_archived_notes": {
+    "include_archived_notes": "Incluir notas arquivadas"
+  },
+  "limit": {
+    "limit": "Limite",
+    "take_first_x_results": "Pegar apenas os X primeiros resultados."
+  },
+  "order_by": {
+    "order_by": "Ordenar por",
+    "relevancy": "Relevância (padrão)",
+    "title": "Título",
+    "date_created": "Data de criação",
+    "date_modified": "Data da última modificação",
+    "content_size": "Tamaho do conteúdo da nota",
+    "content_and_attachments_size": "Tamanho do conteúdo da nota incluindo anexos",
+    "content_and_attachments_and_revisions_size": "Tamanho do conteúdo da nota incluindo anexos e revisões",
+    "revision_count": "Número de revisões",
+    "children_count": "Número de notas filhas",
+    "parent_count": "Número de clones",
+    "owned_label_count": "Número de etiquetas",
+    "owned_relation_count": "Número de relações",
+    "target_relation_count": "Número de relações para esta nota",
+    "random": "Ordem aleatória",
+    "asc": "Crescente (padrão)",
+    "desc": "Decrescente"
+  },
+  "search_script": {
+    "title": "Buscar script:",
+    "placeholder": "buscar notas pelo nome",
+    "example_title": "Veja este exemplo:",
+    "example_code": "// 1. pré-filtro usando pesquisa padrão\nconst candidateNotes = api.searchForNotes(\"#journal\"); \n\n// 2. aplicando critérios de pesquisa customizados\nconst matchedNotes = candidateNotes\n    .filter(note => note.title.match(/[0-9]{1,2}\\. ?[0-9]{1,2}\\. ?[0-9]{4}/));\n\nreturn matchedNotes;"
+  },
+  "search_string": {
+    "title_column": "Buscar texto:",
+    "search_syntax": "Sintaxe de pesquisa",
+    "also_see": "veja também",
+    "full_text_search": "Digite qualquer texto para busca por texto completo",
+    "label_abc": "retorna notas com a etiqueta abc",
+    "label_year": "corresponde notas com a etiqueta de ano 2019",
+    "label_rock_pop": "corresponde notas que tenham tanto a etiqueta rock quando pop",
+    "label_rock_or_pop": "apenas uma das etiquetas deve estar presente",
+    "label_year_comparison": "comparação numérica (também >, >=, <).",
+    "label_date_created": "notas criadas no último mês",
+    "error": "Erro na busca: {{error}}",
+    "search_prefix": "Busca:"
+  },
+  "attachment_list": {
+    "open_help_page": "Abrir página de ajuda nos anexos",
+    "upload_attachments": "Enviar anexos",
+    "no_attachments": "Esta nota não possuí anexos."
+  },
+  "editable_code": {
+    "placeholder": "Digite o conteúdo da sua nota de código aqui…"
+  },
+  "editable_text": {
+    "placeholder": "Digite o conteúdo da sua nota aqui…"
+  },
+  "empty": {
+    "search_placeholder": "buscar uma nota pelo nome",
+    "enter_workspace": "Entrar no workspace {{title}}"
+  },
+  "file": {
+    "file_preview_not_available": "Prévia não disponível para este formato de arquivo."
+  },
+  "protected_session": {
+    "enter_password_instruction": "É necessário digitar sua senha para mostar notas protegidas:",
+    "started": "A sessão protegida foi iniciada.",
+    "wrong_password": "Senha incorreta.",
+    "protecting-finished-successfully": "A proteção foi finalizada com sucesso.",
+    "unprotecting-finished-successfully": "A remoção da proteção foi finalizada com sucesso.",
+    "protecting-in-progress": "Proteções em andamento: {{count}}",
+    "unprotecting-in-progress-count": "Remoções de proteção em andamento: {{count}}",
+    "protecting-title": "Estado da proteção",
+    "unprotecting-title": "Estado da remoção de proteção"
+  },
+  "relation_map": {
+    "open_in_new_tab": "Abrir em nova aba",
+    "remove_note": "Remover nota",
+    "edit_title": "Editar título",
+    "rename_note": "Renomear nota",
+    "enter_new_title": "Digite o novo título da nota:",
+    "remove_relation": "Remover relação",
+    "confirm_remove_relation": "Tem certeza que deseja remover esta relação?",
+    "connection_exists": "A conexão '{{name}}' já existe entre estas notas.",
+    "note_not_found": "Nota {{noteId}} não encontrada!",
+    "note_already_in_diagram": "A nota \"{{title}}\" já está no diagrama.",
+    "enter_title_of_new_note": "Digite o título da nova nota",
+    "default_new_note_title": "nova nota",
+    "click_on_canvas_to_place_new_note": "Clique no quadro para incluir uma nova nota"
+  },
+  "web_view": {
+    "web_view": "Web View"
+  },
+  "backend_log": {
+    "refresh": "Recarregar"
+  },
+  "consistency_checks": {
+    "title": "Chegagem de Consistência",
+    "find_and_fix_button": "Encontrar e corrigir problemas de consistência",
+    "finding_and_fixing_message": "Buscando e corrigindo problemas de consistência…",
+    "issues_fixed_message": "Qualquer problema de consistência encontrado foi corrigido."
+  },
+  "database_integrity_check": {
+    "check_button": "Verificar integridade do banco de dados",
+    "checking_integrity": "Verificando integridade do banco de dados…",
+    "integrity_check_succeeded": "Verificação de integridade bem sucedida - nenhum problema encontrado.",
+    "integrity_check_failed": "Verificação de integridade falhou: {{results}}"
+  },
+  "sync": {
+    "title": "Sincronizar",
+    "force_full_sync_button": "Forçar sincronização completa",
+    "full_sync_triggered": "Sincronização completa iniciada",
+    "finished-successfully": "Sincronização finalizada com sucesso.",
+    "failed": "Sincronização falhou: {{message}}"
+  },
+  "vacuum_database": {
+    "description": "Isso irá reconstruir o banco de dados, o que normalmente irá resultar em uma redução do arquivo do banco de dados. Nenhum dado será alterado."
+  },
+  "fonts": {
+    "theme_defined": "Tema definido",
+    "fonts": "Fontes",
+    "main_font": "Fonte Principal",
+    "font_family": "Família da fonte",
+    "size": "Tamanho",
+    "note_tree_font": "Fonte da Árvore de Notas",
+    "note_detail_font": "Fonte Padrão da Nota",
+    "monospace_font": "Fonte Monospace (código)",
+    "not_all_fonts_available": "Nem todas as fontes listadas podem estar disponíveis em seu sistema.",
+    "apply_font_changes": "Para aplicar as alterações de fonte, clique em",
+    "reload_frontend": "recarregar frontend",
+    "generic-fonts": "Fontes genéricas",
+    "sans-serif-system-fonts": "Fontes sem serifa de sistema",
+    "serif-system-fonts": "Fontes serifadas de sistema",
+    "monospace-system-fonts": "Fontes monospace de sistema",
+    "handwriting-system-fonts": "Fontes de escrita à mão de sistema",
+    "serif": "Serifa",
+    "sans-serif": "Sem Serifa",
+    "monospace": "Monospace",
+    "system-default": "Padrão do Sistema"
+  },
+  "max_content_width": {
+    "title": "Largura do Conteúdo",
+    "max_width_label": "Largura máxima do conteúdo",
+    "max_width_unit": "pixels",
+    "apply_changes_description": "Para aplicar as alterações de largura do conteúdo, clique em",
+    "reload_button": "recarregar frontend",
+    "reload_description": "alterações de opções de aparência"
+  },
+  "native_title_bar": {
+    "title": "Barra de Título Nativa (requer recarregar o app)",
+    "enabled": "ativada",
+    "disabled": "desativada"
+  },
+  "theme": {
+    "title": "Tema da Aplicação",
+    "theme_label": "Tema",
+    "override_theme_fonts_label": "Sobrepor fontes do tema",
+    "auto_theme": "Legado (Seguir esquema de cor do sistema)",
+    "light_theme": "Legado (Claro)",
+    "dark_theme": "Legado (Escuro)",
+    "triliumnext": "Trilium (Seguir esquema de cor do sistema)",
+    "triliumnext-light": "Trilium (Claro)",
+    "triliumnext-dark": "Trilium (Escuro)",
+    "layout": "Layout",
+    "layout-vertical-title": "Vertical",
+    "layout-horizontal-title": "Horizontal",
+    "layout-vertical-description": "barra de lançamento está a esquerda (padrão)",
+    "layout-horizontal-description": "barra de lançamento está abaixo da barra de abas, a barra de abas agora tem a largura total."
+  },
+  "note_launcher": {
+    "this_launcher_doesnt_define_target_note": "Este lançador não define uma nota destino."
+  },
+  "copy_image_reference_button": {
+    "button_title": "Copiar referência da imagem para a área de transferência, pode ser colado em uma nota de texto."
+  }
+}

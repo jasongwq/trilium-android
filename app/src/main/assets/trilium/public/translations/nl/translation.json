@@ -1,0 +1,9 @@
+{
+  "about": {
+    "title": "Over Trilium Notes",
+    "homepage": "Homepagina:",
+    "app_version": "App versie:",
+    "db_version": "DB Versie:",
+    "sync_version": "Sync Versie:"
+  }
+}

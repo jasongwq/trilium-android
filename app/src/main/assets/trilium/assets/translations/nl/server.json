@@ -1,0 +1,12 @@
+{
+  "keyboard_actions": {
+    "back-in-note-history": "Navigeer naar vorige notitie in geschiedenis",
+    "forward-in-note-history": "Navigeer naar de volgende notitie in de geschiedenis",
+    "open-jump-to-note-dialog": "Open het dialoogvenster 'Ga naar notitie'",
+    "open-command-palette": "Open het opdrachtvenster",
+    "scroll-to-active-note": "Scroll naar actieve notitie in de notitieboom",
+    "quick-search": "Snelle zoekbalk activeren",
+    "search-in-subtree": "Zoek naar notities in de subboom van de actieve notitie",
+    "expand-subtree": "Subboom van huidige notitie uitbreiden"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "about": {
+    "title": "Trilium Notes에 대해서",
+    "homepage": "홈페이지:",
+    "app_version": "앱 버전:",
+    "db_version": "DB 버전:",
+    "sync_version": "동기화 버전:",
+    "build_date": "빌드 날짜:",
+    "build_revision": "빌드 리비전:",
+    "data_directory": "데이터 경로:"
+  },
+  "toast": {
+    "critical-error": {
+      "title": "심각한 오류",
+      "message": "클라이언트 애플리케이션 시작 도중 심각한 오류가 발생했습니다:\n\n{{message}}\n\n이는 스크립트가 예기치 않게 실패하면서 발생한 것일 수 있습니다. 애플리케이션을 안전 모드로 시작한 뒤 문제를 해결해 보세요."
+    },
+    "widget-error": {
+      "title": "위젯 초기화 실패"
+    }
+  },
+  "add_link": {
+    "add_link": "링크 추가",
+    "note": "노트",
+    "search_note": "이름으로 노트 검색하기"
+  },
+  "branch_prefix": {
+    "save": "저장"
+  }
+}

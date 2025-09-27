@@ -1,0 +1,6 @@
+{
+    "keyboard_actions": {
+        "delete-note": "Xoá ghi chép",
+        "move-notes-to": "Di chuyển ghi chép được chọn"
+    }
+}
