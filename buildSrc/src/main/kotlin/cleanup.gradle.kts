@@ -102,8 +102,8 @@ fun changePackageName(owner: String, name: String) {
             .forEach {
                 val newDir = File(it, "com/github/$owner/$name")
                 newDir.parentFile.mkdirs()
-                File(it, "com/ncorti/kotlin/template").renameTo(newDir)
-                File(it, "com/ncorti").deleteRecursively()
+                File(it, "fun/ypwq/trilium").renameTo(newDir)
+                File(it, "fun/ypwq").deleteRecursively()
             }
     }
 }
