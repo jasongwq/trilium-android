@@ -27,7 +27,7 @@ tasks.register("templateCleanup") {
             "rootProject.name = (\"$name\")"
         )
         file("gradle.properties").replace(
-            "fun.ypwq",
+            "com.ypwq.ypwq",
             "com.github.$owner.$name"
         )
 
@@ -93,7 +93,7 @@ fun changePackageName(owner: String, name: String) {
         it.walk().filter {
             it.isFile && (it.extension == "kt" || it.extension == "kts" || it.extension == "xml")
         }.forEach {
-            it.replace("fun.ypwq", "com.github.$owner.$name")
+            it.replace("com.ypwq.ypwq", "com.github.$owner.$name")
         }
     }
     srcDirectories().forEach {
@@ -102,8 +102,8 @@ fun changePackageName(owner: String, name: String) {
             .forEach {
                 val newDir = File(it, "com/github/$owner/$name")
                 newDir.parentFile.mkdirs()
-                File(it, "fun/ypwq/trilium").renameTo(newDir)
-                File(it, "fun/ypwq").deleteRecursively()
+                File(it, "com/ypwq/ypwq/trilium").renameTo(newDir)
+                File(it, "com/ypwq/ypwq").deleteRecursively()
             }
     }
 }
