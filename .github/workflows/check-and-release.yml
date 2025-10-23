@@ -1,0 +1,172 @@
+name: Check External Release and Publish
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0/12 * * *'
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Get latest release tag from external repo
+        id: get-external-release
+        run: |
+          LATEST_TAG=$(curl -s https://api.github.com/repos/TriliumNext/Trilium/releases/latest | jq -r '.tag_name')
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+      - name: Read stored version
+        id: read-stored-version
+        run: |
+          if [ -f "version.txt" ]; then
+            STORED_TAG=$(cat version.txt)
+            echo "stored_tag=$STORED_TAG" >> $GITHUB_OUTPUT
+          else
+            echo "stored_tag=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if new release is available
+        id: check-version
+        run: |
+          if [ "${{ steps.get-external-release.outputs.latest_tag }}" != "${{ steps.read-stored-version.outputs.stored_tag }}" ]; then
+            echo "is_new=true" >> $GITHUB_OUTPUT
+            echo "New release found: ${{ steps.get-external-release.outputs.latest_tag }}"
+          else
+            echo "is_new=false" >> $GITHUB_OUTPUT
+            echo "No new release."
+          fi
+
+      - name: Read gradle.properties
+        id: read-gradle-properties
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          # 读取当前版本号
+          APP_VERSION_CODE=$(grep '^APP_VERSION_CODE=' gradle.properties | cut -d'=' -f2)
+          APP_VERSION_NAME=$(grep '^APP_VERSION_NAME=' gradle.properties | cut -d'=' -f2)
+          
+          echo "APP_VERSION_CODE=$APP_VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "APP_VERSION_NAME=$APP_VERSION_NAME" >> $GITHUB_OUTPUT
+
+        
+      - name: Increment APP_VERSION_CODE
+        id: increment-version-code
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          # 递增版本号
+          CURRENT_CODE=${{ steps.read-gradle-properties.outputs.APP_VERSION_CODE }}
+          NEW_CODE=$((CURRENT_CODE + 1))
+          echo "new_version_code=$NEW_CODE" >> $GITHUB_OUTPUT
+
+        
+      - name: Update APP_VERSION_NAME
+        id: update-version-name
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          # 更新版本名称，替换'-'前面的部分
+          CURRENT_NAME=${{ steps.read-gradle-properties.outputs.APP_VERSION_NAME }}
+          LATEST_TAG=${{ steps.get-external-release.outputs.latest_tag }}
+          
+          # 如果版本名包含'-'，则替换前面的部分，否则直接使用标签
+          if [[ $CURRENT_NAME == *-* ]]; then
+            NEW_NAME="${LATEST_TAG}-${CURRENT_NAME#*-}"
+          else
+            NEW_NAME="$LATEST_TAG"
+          fi
+          
+          echo "new_version_name=$NEW_NAME" >> $GITHUB_OUTPUT
+
+        
+      - name: Update gradle.properties
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          # 使用sed命令更新文件内容
+          sed -i "s/^APP_VERSION_CODE=.*/APP_VERSION_CODE=${{ steps.increment-version-code.outputs.new_version_code }}/" gradle.properties
+          sed -i "s/^APP_VERSION_NAME=.*/APP_VERSION_NAME=${{ steps.update-version-name.outputs.new_version_name }}/" gradle.properties
+          
+          # 显示更新后的内容
+          echo "Updated gradle.properties:"
+          cat gradle.properties
+
+      - name: Download, Process and Repack
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          tar xvf nodejs/nodejs-v22.19.0.tar.xz
+          wget -O external_latest.tar.xz https://github.com/TriliumNext/Trilium/releases/download/${{ steps.get-external-release.outputs.latest_tag }}/TriliumNotes-Server-${{ steps.get-external-release.outputs.latest_tag }}-linux-arm64.tar.xz
+          tar xvf external_latest.tar.xz
+          rm -rf TriliumNotes-Server-*-linux-arm64/node
+          rm -rf TriliumNotes-Server-*-linux-arm64/node_modules/better-sqlite3
+          mkdir -p app/src/main/assets
+          mv TriliumNotes-Server-*-linux-arm64 app/src/main/assets/trilium
+          cp version.txt app/src/main/assets/trilium/
+          cp -r nodejs-v22.19.0/node app/src/main/assets/trilium/
+          cp -r nodejs-v22.19.0/better-sqlite3 app/src/main/assets/trilium/node_modules/
+
+      - name: Make gradlew executable
+        if: steps.check-version.outputs.is_new == 'true'
+        run: chmod +x ./gradlew  # Grants executable permissions to the Gradle wrapper script.
+ 
+      - name: Set up JDK 17
+        if: steps.check-version.outputs.is_new == 'true'
+        uses: actions/setup-java@v4.7.1  # Sets up Java Development Kit version 17 for the build environment.
+        with:
+          java-version: '17'  # Specifies the Java version to use.
+          distribution: 'temurin'  # Uses the Eclipse Temurin distribution of the JDK.
+          cache: gradle  # Caches Gradle dependencies to speed up future builds.
+
+      - name: Setup Android SDK
+        if: steps.check-version.outputs.is_new == 'true'
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Gradle
+        if: steps.check-version.outputs.is_new == 'true'
+        uses: gradle/actions/setup-gradle@v4.4.4  # Configures Gradle for the workflow, ensuring compatibility and caching.
+ 
+      - name: Decode Keystore
+        if: steps.check-version.outputs.is_new == 'true'
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY }}  # Uses the encoded signing key stored in GitHub Secrets.
+        run: |
+          echo $ENCODED_STRING | base64 -di > app/keystore.jks  # Decodes the base64-encoded keystore and saves it as a .jks file.
+
+      - name: Clean Gradle
+        if: steps.check-version.outputs.is_new == 'true'
+        run: ./gradlew clean  # Removes previous build artifacts to ensure a clean build environment.
+ 
+      - name: Build Release APK
+        if: steps.check-version.outputs.is_new == 'true'
+        run: ./gradlew assembleRelease -x lint --stacktrace --info  # Builds the release APK, skipping lint checks for faster execution.
+        env:
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}  # Provides the keystore password from GitHub Secrets.
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}  # Specifies the alias for the signing key.
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}  # Provides the key password from GitHub Secrets.
+      
+      - name: Publish to Current Repository Release
+        if: steps.check-version.outputs.is_new == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.update-version-name.outputs.new_version_name }}
+          name: Automated Build for ${{ steps.get-external-release.outputs.latest_tag }}
+          body: |
+            This is an automated release based on upstream version ${{ steps.get-external-release.outputs.latest_tag }}.
+            **Source:** https://github.com/TriliumNext/Trilium
+          files: app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update stored version and README.md
+        if: steps.check-version.outputs.is_new == 'true'
+        run: |
+          echo "${{ steps.get-external-release.outputs.latest_tag }}" > version.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add version.txt gradle.properties
+          git commit -m "ci: update tracked external release to ${{ steps.get-external-release.outputs.latest_tag }}"
+          git push

@@ -1,0 +1,20 @@
+<resources>
+     <!-- 其他已有的颜色定义 -->
+     <!--color name="colorPrimary">#6200EE</color>
+     <color name="colorPrimaryDark">#3700B3</color>
+     <color name="colorAccent">#03DAC5</color>
+
+     <color name="blue">#2196F3</color--> <!-- 示例：Google 蓝 -->
+        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                <!--item name="android:windowLightStatusBar">true</item>
+                <item name="android:statusBarColor">@color/blue</item-->
+        </style>
+</resources>
+    <!--style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"-->
+        <!-- Customize your theme here. -->
+        <!--item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item-->
+        <!--item name="windowNoTitle">true</item>
+	<item name="windowActionBar">false</item-->  <!-- 禁用ActionBar -->
+	<!--item name="android:windowDrawsSystemBarBackgrounds">true</item-->

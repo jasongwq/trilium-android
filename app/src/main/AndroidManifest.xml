@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- 网络访问权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 访问网络状态权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup"
+        android:usesCleartextTraffic="true">
+        <!-- 声明使用HTTP的权限（Android 9.0及以上需要） -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+        <!-- 已注册的NodeService -->
+        <service
+            android:name=".NodeService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:resizeableActivity="true"
+            android:windowLayoutInDisplayCutoutMode="shortEdges">  <!-- 允许内容延伸到刘海区域（仅短边） -->
+            <meta-data
+                android:name="android.max_aspect"
+                android:value="2.4" />  <!-- 声明支持的最大长宽比（21:9 约为 2.33，2.4 覆盖大部分长屏） -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,93 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]  # The workflow is triggered only when the code is pushed to the main branch.
+  pull_request:
+    branches: [ "main" ]  # The workflow is triggered for pull requests targeting the main branch.
+
+jobs:
+  release-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Read stored version
+        id: read-stored-version
+        run: |
+          if [ -f "version.txt" ]; then
+            STORED_TAG=$(cat version.txt)
+            echo "stored_tag=$STORED_TAG" >> $GITHUB_OUTPUT
+          else
+            echo "stored_tag=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Download, Process and Repack
+        run: |
+          tar xvf nodejs/nodejs-v22.19.0.tar.xz
+          wget -O external_latest.tar.xz https://github.com/TriliumNext/Trilium/releases/download/${{ steps.read-stored-version.outputs.stored_tag }}/TriliumNotes-Server-${{ steps.read-stored-version.outputs.stored_tag }}-linux-arm64.tar.xz
+          tar xvf external_latest.tar.xz
+          rm -rf TriliumNotes-Server-*-linux-arm64/node
+          rm -rf TriliumNotes-Server-*-linux-arm64/node_modules/better-sqlite3
+          mkdir -p app/src/main/assets
+          mv TriliumNotes-Server-*-linux-arm64 app/src/main/assets/trilium
+          cp version.txt app/src/main/assets/trilium/
+          cp -r nodejs-v22.19.0/node app/src/main/assets/trilium/
+          cp -r nodejs-v22.19.0/better-sqlite3 app/src/main/assets/trilium/node_modules/
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew  # Grants executable permissions to the Gradle wrapper script.
+ 
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4.7.1  # Sets up Java Development Kit version 17 for the build environment.
+        with:
+          java-version: '17'  # Specifies the Java version to use.
+          distribution: 'temurin'  # Uses the Eclipse Temurin distribution of the JDK.
+          cache: gradle  # Caches Gradle dependencies to speed up future builds.
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4.4.4  # Configures Gradle for the workflow, ensuring compatibility and caching.
+ 
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY }}  # Uses the encoded signing key stored in GitHub Secrets.
+        run: |
+          echo $ENCODED_STRING | base64 -di > app/keystore.jks  # Decodes the base64-encoded keystore and saves it as a .jks file.
+
+      - name: Clean Gradle
+        run: ./gradlew clean  # Removes previous build artifacts to ensure a clean build environment.
+ 
+      - name: Build Release APK
+        run: ./gradlew assembleRelease -x lint --stacktrace --info  # Builds the release APK, skipping lint checks for faster execution.
+        env:
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}  # Provides the keystore password from GitHub Secrets.
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}  # Specifies the alias for the signing key.
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}  # Provides the key password from GitHub Secrets.
+      
+      - name: Upload Signed Release APK
+        uses: actions/upload-artifact@v4  # Uploads the generated APK as a workflow artifact for download.
+        with:
+          name: signed-release  # Names the artifact for easy identification.
+          path: |
+            app/build/outputs/apk/release/*.apk
+          retention-days: 90  # Sets the artifact retention period to 90 days.
+            #      - name: Publish to Current Repository Release
+            #        uses: softprops/action-gh-release@v2
+            #        with:
+            #          tag_name: ${{ steps.read-stored-version.outputs.stored_tag }}
+            #          name: Automated Build for ${{ steps.read-stored-version.outputs.stored_tag }}
+            #          body: |
+            #            This is an automated release based on upstream version ${{ steps.read-stored-version.outputs.stored_tag }}.
+            #            **Source:** https://github.com/TriliumNext/Trilium
+            #          files: TriliumNotes-Server-${{ steps.read-stored-version.outputs.stored_tag }}-termux-arm64.tar.xz
+            #        env:
+            #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
